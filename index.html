@@ -95,7 +95,7 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of igoR from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>You can install developing version from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
 <span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></code></pre></div>
@@ -250,10 +250,21 @@
 <span class="co"># Latest date</span>
 <span class="va">eec_end</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="va">eec_code</span><span class="op">$</span><span class="va">ioname</span><span class="op">)</span></code></pre></div>
 <table class="table">
+<colgroup>
+<col width="6%">
+<col width="5%">
+<col width="11%">
+<col width="23%">
+<col width="4%">
+<col width="5%">
+<col width="15%">
+<col width="28%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">ioname</th>
 <th align="right">ccode</th>
 <th align="left">state</th>
+<th align="left">statenme</th>
 <th align="right">year</th>
 <th align="right">value</th>
 <th align="left">category</th>
@@ -264,6 +275,7 @@
 <td align="left">EEC</td>
 <td align="right">211</td>
 <td align="left">belgium</td>
+<td align="left">Belgium</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -273,6 +285,7 @@
 <td align="left">EEC</td>
 <td align="right">220</td>
 <td align="left">france</td>
+<td align="left">France</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -282,6 +295,7 @@
 <td align="left">EEC</td>
 <td align="right">325</td>
 <td align="left">italy</td>
+<td align="left">Italy</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -291,6 +305,7 @@
 <td align="left">EEC</td>
 <td align="right">212</td>
 <td align="left">luxembourg</td>
+<td align="left">Luxembourg</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -300,6 +315,7 @@
 <td align="left">EEC</td>
 <td align="right">210</td>
 <td align="left">netherlands</td>
+<td align="left">Netherlands</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -309,6 +325,7 @@
 <td align="left">EEC</td>
 <td align="right">260</td>
 <td align="left">wgermany</td>
+<td align="left">German Federal Republic</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -318,10 +335,21 @@
 </table>
 <p>EEC, members (1958)</p>
 <table class="table">
+<colgroup>
+<col width="6%">
+<col width="5%">
+<col width="12%">
+<col width="16%">
+<col width="4%">
+<col width="5%">
+<col width="17%">
+<col width="31%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">ioname</th>
 <th align="right">ccode</th>
 <th align="left">state</th>
+<th align="left">statenme</th>
 <th align="right">year</th>
 <th align="right">value</th>
 <th align="left">category</th>
@@ -332,6 +360,7 @@
 <td align="left">EEC</td>
 <td align="right">211</td>
 <td align="left">belgium</td>
+<td align="left">Belgium</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -341,6 +370,7 @@
 <td align="left">EEC</td>
 <td align="right">390</td>
 <td align="left">denmark</td>
+<td align="left">Denmark</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -350,6 +380,7 @@
 <td align="left">EEC</td>
 <td align="right">220</td>
 <td align="left">france</td>
+<td align="left">France</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -359,6 +390,7 @@
 <td align="left">EEC</td>
 <td align="right">255</td>
 <td align="left">germany</td>
+<td align="left">Germany</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -368,6 +400,7 @@
 <td align="left">EEC</td>
 <td align="right">350</td>
 <td align="left">greece</td>
+<td align="left">Greece</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -377,6 +410,7 @@
 <td align="left">EEC</td>
 <td align="right">205</td>
 <td align="left">ireland</td>
+<td align="left">Ireland</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -386,6 +420,7 @@
 <td align="left">EEC</td>
 <td align="right">325</td>
 <td align="left">italy</td>
+<td align="left">Italy</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -395,6 +430,7 @@
 <td align="left">EEC</td>
 <td align="right">212</td>
 <td align="left">luxembourg</td>
+<td align="left">Luxembourg</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -404,6 +440,7 @@
 <td align="left">EEC</td>
 <td align="right">210</td>
 <td align="left">netherlands</td>
+<td align="left">Netherlands</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -413,6 +450,7 @@
 <td align="left">EEC</td>
 <td align="right">235</td>
 <td align="left">portugal</td>
+<td align="left">Portugal</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -422,6 +460,7 @@
 <td align="left">EEC</td>
 <td align="right">230</td>
 <td align="left">spain</td>
+<td align="left">Spain</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -431,6 +470,7 @@
 <td align="left">EEC</td>
 <td align="right">200</td>
 <td align="left">uk</td>
+<td align="left">United Kingdom</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
