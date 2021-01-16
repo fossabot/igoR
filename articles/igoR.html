@@ -59,6 +59,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/reference.html">List of IGOs and Countries</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -99,16 +111,24 @@
 <div id="definitions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#definitions" class="anchor"></a>Definitions</h2>
-<p><strong>What is an IGO?</strong></p>
+<div id="what-is-an-igo" class="section level3">
+<h3 class="hasAnchor">
+<a href="#what-is-an-igo" class="anchor"></a>What is an IGO?</h3>
 <p>The definition of an Intergovernmental Organization (IGO) on the original dataset is based on the following criteria:</p>
 <ol style="list-style-type: decimal">
 <li><p>An IGO must consist of at least three members of the <a href="https://correlatesofwar.org/data-sets/cow-country-codes">COW-defined state system</a>.</p></li>
 <li><p>An IGO must hold regular plenary sessions at least once every ten years</p></li>
 <li><p>An IGO must possess a permanent secretariat and corresponding headquarters.</p></li>
 </ol>
-<p><strong>When does an IGO actually begin?</strong></p>
-<p>The datasets begin to code an IGO by identifying the first year in which the organization functions. In some cases, individual members are listed by year of accession or signature.</p>
-<p><strong>When does an IGO die?</strong></p>
+</div>
+<div id="when-does-an-igo-actually-begin" class="section level3">
+<h3 class="hasAnchor">
+<a href="#when-does-an-igo-actually-begin" class="anchor"></a>When does an IGO actually begin?</h3>
+<p>The datasets begins to code an IGO by identifying the first year in which the organization functions. In some cases, individual members are listed by year of accession or signature.</p>
+</div>
+<div id="when-does-an-igo-die" class="section level3">
+<h3 class="hasAnchor">
+<a href="#when-does-an-igo-die" class="anchor"></a>When does an IGO die?</h3>
 <p>Version 3.0 of the IGO data set uses the following criteria:</p>
 <ul>
 <li>An organization is considered terminated when the following words were used to describe the context of the organization:
@@ -122,6 +142,7 @@
 </ul>
 </li>
 </ul>
+</div>
 </div>
 <div id="analysis" class="section level2">
 <h2 class="hasAnchor">
@@ -306,7 +327,8 @@ Figure 2. Birth and death rates of IGOs, 1816-2014
 
 <span class="va">regions</span><span class="op">$</span><span class="va">region</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">regions</span><span class="op">$</span><span class="va">ionum</span> <span class="op">%in%</span> <span class="va">MiddleEast</span>, <span class="st">"Middle East"</span>, <span class="va">regions</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></code></pre></div>
-</details><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+</details><p>After we have created a data frame with the regions, we can classify the IGOs by region.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># regions dataset created on previous chunk</span>
 
