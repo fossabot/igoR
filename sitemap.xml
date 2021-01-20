@@ -4,10 +4,10 @@
     <loc>https://dieghernan.github.io/igoR/index.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/igoR/reference/cow_country_codes.html</loc>
+    <loc>https://dieghernan.github.io/igoR/reference/igoR-package.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/igoR/reference/igoR-package.html</loc>
+    <loc>https://dieghernan.github.io/igoR/reference/igo_dyadic.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/igoR/reference/igo_members.html</loc>
@@ -16,10 +16,19 @@
     <loc>https://dieghernan.github.io/igoR/reference/igo_search.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/igoR/reference/igo_search_states.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/igoR/reference/igo_state_membership.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/igoR/reference/igo_year_format3.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/igoR/reference/state_year_format3.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/igoR/reference/states2016.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/igoR/articles/igoR.html</loc>
