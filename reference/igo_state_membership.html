@@ -101,7 +101,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html"><img src="../logo.png" alt="igoR-logo" id="navbar-logo">igoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -326,9 +326,12 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 <span class='co'># Extract different status</span>
 
 <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"kosovo"</span>,
-                     status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Associate Membership"</span>,
-                     <span class='st'>"Observer"</span>,
-                     <span class='st'>"Full Membership"</span><span class='op'>)</span><span class='op'>)</span>
+  status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='st'>"Associate Membership"</span>,
+    <span class='st'>"Observer"</span>,
+    <span class='st'>"Full Membership"</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
 </div><div class='output co'>#&gt;   ccode stateabb statenme  state year ioname             category
 #&gt; 1   347      KOS   Kosovo kosovo 2014   ACCT Associate Membership
 #&gt; 2   347      KOS   Kosovo kosovo 2014   EBRD      Full Membership
@@ -359,7 +362,8 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 #&gt; 6      0        1</div><div class='input'>
 <span class='co'># Vectorized</span>
 <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"usa"</span>, <span class='st'>"spain"</span><span class='op'>)</span>,
-                     year <span class='op'>=</span> <span class='fl'>1870</span><span class='op'>:</span><span class='fl'>1871</span><span class='op'>)</span>
+  year <span class='op'>=</span> <span class='fl'>1870</span><span class='op'>:</span><span class='fl'>1871</span>
+<span class='op'>)</span>
 </div><div class='output co'>#&gt;   ccode stateabb                 statenme state year ioname        category
 #&gt; 1     2      USA United States of America   usa 1870 ICCSLT Full Membership
 #&gt; 2     2      USA United States of America   usa 1871 ICCSLT Full Membership
@@ -400,8 +404,10 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vincentarelbundock/countrycode'>countrycode</a></span><span class='op'>)</span>
   <span class='va'>IT</span> <span class='op'>&lt;-</span> <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Italy"</span>, year <span class='op'>=</span> <span class='fl'>1880</span><span class='op'>)</span>
-  <span class='va'>IT</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>$</span><span class='va'>ccode</span>, origin <span class='op'>=</span> <span class='st'>"cown"</span>,
-                          destination <span class='op'>=</span> <span class='st'>"iso3c"</span><span class='op'>)</span>
+  <span class='va'>IT</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>$</span><span class='va'>ccode</span>,
+    origin <span class='op'>=</span> <span class='st'>"cown"</span>,
+    destination <span class='op'>=</span> <span class='st'>"iso3c"</span>
+  <span class='op'>)</span>
   <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div><div class='output co'>#&gt;   ccode stateabb statenme state year ioname        category
@@ -431,8 +437,7 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 #&gt; 3      0        1   ITA
 #&gt; 4      1        0   ITA
 #&gt; 5      0        1   ITA
-#&gt; 6      1        0   ITA</div><div class='input'>
-</div></pre>
+#&gt; 6      1        0   ITA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
