@@ -402,9 +402,9 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 #&gt; 8      1        0</div><div class='input'>
 <span class='co'># Use countrycodes package to get additional codes</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vincentarelbundock/countrycode'>countrycode</a></span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://vincentarelbundock.github.io/countrycode/'>countrycode</a></span><span class='op'>)</span>
   <span class='va'>IT</span> <span class='op'>&lt;-</span> <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Italy"</span>, year <span class='op'>=</span> <span class='fl'>1880</span><span class='op'>)</span>
-  <span class='va'>IT</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>$</span><span class='va'>ccode</span>,
+  <span class='va'>IT</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>$</span><span class='va'>ccode</span>,
     origin <span class='op'>=</span> <span class='st'>"cown"</span>,
     destination <span class='op'>=</span> <span class='st'>"iso3c"</span>
   <span class='op'>)</span>
