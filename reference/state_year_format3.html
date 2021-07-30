@@ -182,22 +182,12 @@ intervals through 1965, and annually thereafter).</p>
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>data frame with 15557 rows. Relevant fields:</p><ul>
-<li><p><strong>ccode</strong>: COW country number,
-see <a href='states2016.html'>states2016</a>.</p></li>
+<li><p><strong>ccode</strong>: COW country number, see <a href='states2016.html'>states2016</a>.</p></li>
 <li><p><strong>year</strong>: Calendar Year.</p></li>
-<li><p><strong>state</strong>: Abbreviated state name, identical to variable
-names in <a href='igo_year_format3.html'>igo_year_format3</a></p></li>
-<li><p><strong>aaaid...wassen</strong>: IGO variables containing information on
-state membership status:
-<table class='table'>
-<tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr>
-<tr><td>No Membership</td><td>0</td></tr>
-<tr><td>Full Membership</td><td>1</td></tr>
-<tr><td>Associate Membership</td><td>2</td></tr>
-<tr><td>Observer</td><td>3</td></tr>
-<tr><td>Missing data</td><td>-9</td></tr>
-<tr><td>IGO Not In Existence</td><td>-1</td></tr>
-</table></p></li>
+<li><p><strong>state</strong>: Abbreviated state name, identical to variable names in
+<a href='igo_year_format3.html'>igo_year_format3</a>.</p></li>
+<li><p><strong>aaaid...wassen</strong>: IGO variables containing information on state
+membership status. See Details.</p></li>
 </ul>
 
 <p>See <a href='https://correlatesofwar.org/data-sets/IGOs'><strong>Codebook Version 3 IGO Data</strong></a></p>
@@ -205,9 +195,22 @@ state membership status:
 
     <p><a href='https://correlatesofwar.org/data-sets/IGOs'>Intergovernmental Organizations (v3)</a>,
 The Correlates of War Project (IGO Data Stata Files)</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Possible value of the status of that state in the IGO are:</p><table class='table'>
+<tr><td>Category</td><td>Numerical value</td></tr>
+<tr><td>No Membership</td><td>0</td></tr>
+<tr><td>Full Membership</td><td>1</td></tr>
+<tr><td>Associate Membership</td><td>2</td></tr>
+<tr><td>Observer</td><td>3</td></tr>
+<tr><td>Missing data</td><td>-9</td></tr>
+<tr><td>IGO Not In Existence</td><td>-1</td></tr>
+</table>
+
+
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Raw data used internally by <span class="pkg">igoR</span></p>
+    <p>Raw data used internally by <strong>igoR</strong>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
@@ -217,9 +220,9 @@ IGO Version 3.0 Datasets." <em>Journal of Peace Research</em> 57, no. 3
 .</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='igo_year_format3.html'>igo_year_format3</a>,
-<a href='states2016.html'>states2016</a>. See also <code><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode::countrycode()</a></code> to
-convert between different country code schemes.</p></div>
+    <div class='dont-index'><p><a href='igo_year_format3.html'>igo_year_format3</a>, <a href='states2016.html'>states2016</a>. See also
+<code><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode::countrycode()</a></code> to convert between different country code
+schemes.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

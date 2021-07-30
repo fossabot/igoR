@@ -185,20 +185,12 @@ thereafter).</p>
 <li><p><strong>ioname</strong>: Short abbreviation of the IGO name.</p></li>
 <li><p><strong>orgname</strong>: Full IGO name.</p></li>
 <li><p><strong>year</strong>: Calendar Year.</p></li>
-<li><p><strong>afghanistan...zimbabwe</strong>: status of that state in the IGO:
-<table class='table'>
-<tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr>
-<tr><td>No Membership</td><td>0</td></tr>
-<tr><td>Full Membership</td><td>1</td></tr>
-<tr><td>Associate Membership</td><td>2</td></tr>
-<tr><td>Observer</td><td>3</td></tr>
-<tr><td>Missing data</td><td>-9</td></tr>
-<tr><td>State Not System Member</td><td>-1</td></tr>
-</table></p></li>
+<li><p><strong>afghanistan...zimbabwe</strong>: status of that state in the IGO.
+See Details.</p></li>
 <li><p><strong>sdate</strong>: start date (year) that the IGO started.</p></li>
 <li><p><strong>deaddate</strong>: dead date (year) that the IGO dead.</p></li>
-<li><p><strong>longorgname</strong>: a longer version of the IGOs name
-(including previous names)</p></li>
+<li><p><strong>longorgname</strong>: a longer version of the IGOs name (including previous
+names)</p></li>
 <li><p><strong>ionum</strong>: IGO id number in v2.1 and v3.0 of the data.</p></li>
 <li><p><strong>version</strong>: COW version number.</p></li>
 </ul>
@@ -207,7 +199,21 @@ thereafter).</p>
 for full reference.</p>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://correlatesofwar.org/data-sets/IGOs'>Intergovernmental Organizations (v3)</a>, The Correlates of War Project (IGO Data Stata Files).</p>
+    <p><a href='https://correlatesofwar.org/data-sets/IGOs'>Intergovernmental Organizations (v3)</a>,
+The Correlates of War Project (IGO Data Stata Files).</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Possible value of the status of that state in the IGO are:</p><table class='table'>
+<tr><td>Category</td><td>Numerical value</td></tr>
+<tr><td>No Membership</td><td>0</td></tr>
+<tr><td>Full Membership</td><td>1</td></tr>
+<tr><td>Associate Membership</td><td>2</td></tr>
+<tr><td>Observer</td><td>3</td></tr>
+<tr><td>Missing data</td><td>-9</td></tr>
+<tr><td>State Not System Member</td><td>-1</td></tr>
+</table>
+
+
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Raw data used internally by <strong>igoR</strong>.</p>
