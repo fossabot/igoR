@@ -50,7 +50,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html"><img src="../logo.png" alt="igoR-logo" id="navbar-logo">igoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9011</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9012</span>
       </span>
     </div>
 
@@ -127,11 +127,9 @@
 <p>This vignette provides some geospatial visualizations using the IGO datasets (<span class="citation">Pevehouse et al. (2020)</span>) included in this package. Specific packages used for geospatial data:</p>
 <ul>
 <li>
-<code>sf</code> for geospatial operations.</li>
-<li>
 <code>giscoR</code> for extracting the shapefiles of the countries.</li>
 <li>
-<code>tmap</code> for plotting.</li>
+<code>ggplot2</code> for plotting.</li>
 </ul>
 <p>Also <code>countrycode</code> is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -140,27 +138,20 @@
 
 <span class="co"># Helper packages</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/countrycode/">countrycode</a></span><span class="op">)</span>
 
 <span class="co"># Geospatial packages</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">sf</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">giscoR</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">tmap</span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">giscoR</span><span class="op">)</span></code></pre></div>
 <div id="evolution-of-the-composition-of-un" class="section level2">
 <h2 class="hasAnchor">
 <a href="#evolution-of-the-composition-of-un" class="anchor"></a>Evolution of the composition of UN</h2>
 <p>The following maps shows the evolution of countries that are members of the United Nations.</p>
 <p>First we should extract the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Extract shape and project to Robinson</span>
+<code class="sourceCode R"><span class="co"># Extract shapes</span>
 
-<span class="co"># See https://epsg.io/54030</span>
-<span class="va">robin</span> <span class="op">&lt;-</span>
-  <span class="st">"+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"</span>
-
-<span class="va">world</span> <span class="op">&lt;-</span>
-  <span class="fu">gisco_get_countries</span><span class="op">(</span>year <span class="op">=</span> <span class="st">"2010"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">st_transform</span><span class="op">(</span><span class="va">robin</span><span class="op">)</span>
+<span class="va">world</span> <span class="op">&lt;-</span> <span class="fu">gisco_get_countries</span><span class="op">(</span>year <span class="op">=</span> <span class="st">"2010"</span><span class="op">)</span>
 
 <span class="va">un</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="st">"UN"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -173,7 +164,9 @@
     <span class="st">"iso3c"</span>,
     warn <span class="op">=</span> <span class="cn">FALSE</span>
   <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1950</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span><span class="op">)</span>
 
 <span class="va">UN1980</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fl">1980</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -182,7 +175,9 @@
     <span class="st">"iso3c"</span>,
     warn <span class="op">=</span> <span class="cn">FALSE</span>
   <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1980</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span><span class="op">)</span>
 
 <span class="va">UN2010</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fl">2010</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -191,101 +186,36 @@
     <span class="st">"iso3c"</span>,
     warn <span class="op">=</span> <span class="cn">FALSE</span>
   <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span></code></pre></div>
-<p>Note that the map is not completely accurate, as the base shapefile contains the countries that exists on 2016 and some countries (Czechoslovakia, East and West Germany) are not included. See <a href="https://dieghernan.github.io/igoR/articles/reference.html">List of IGOs and Countries</a> for more information.</p>
-<p>Now we are ready to plot with <code>tmap</code>:</p>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span><span class="op">)</span>
+
+<span class="co"># Join all</span>
+
+<span class="va">UN_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">UN1950</span>, <span class="va">UN1980</span>, <span class="va">UN2010</span><span class="op">)</span></code></pre></div>
+<p>Note that the map is not completely accurate, as the base shapefile contains the countries that exists on 2016. Some countries, as Czechoslovakia, East or West Germany are not included.</p>
+<p>Now we are ready to plot with <code>ggplot2</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-
-<span class="co"># UN 1950----</span>
-
-
-<span class="fu">tm_shape</span><span class="op">(</span><span class="va">world</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_graticules</span><span class="op">(</span>
-    labels.show <span class="op">=</span> <span class="cn">FALSE</span>,
-    col <span class="op">=</span> <span class="st">"grey90"</span>,
-    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>, <span class="fl">180</span>, <span class="fl">20</span><span class="op">)</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">90</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">UN_all</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">orgname</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NA</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Robinson</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="st">"ESRI:54030"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>,
+    ncol <span class="op">=</span> <span class="fl">1</span>,
+    strip.position <span class="op">=</span> <span class="st">"left"</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_layout</span><span class="op">(</span>
-    frame <span class="op">=</span> <span class="cn">FALSE</span>,
-    earth.boundary <span class="op">=</span> <span class="cn">TRUE</span>,
-    earth.boundary.color <span class="op">=</span> <span class="st">"grey90"</span>,
-    main.title <span class="op">=</span> <span class="st">"UN Members, 1950"</span>,
-    main.title.position <span class="op">=</span> <span class="st">"center"</span>,
-    main.title.size <span class="op">=</span> <span class="fl">1</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>
+    values <span class="op">=</span> <span class="st">"#74A9CF"</span>,
+    na.value <span class="op">=</span> <span class="st">"#E0E0E0"</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#E0E0E0"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"UN Members"</span>,
+    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_shape</span><span class="op">(</span><span class="va">UN1950</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#74A9CF"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
-  <span class="op">)</span>
-
-
-<span class="co"># UN 1980----</span>
-
-
-<span class="fu">tm_shape</span><span class="op">(</span><span class="va">world</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_graticules</span><span class="op">(</span>
-    labels.show <span class="op">=</span> <span class="cn">FALSE</span>,
-    col <span class="op">=</span> <span class="st">"grey90"</span>,
-    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>, <span class="fl">180</span>, <span class="fl">20</span><span class="op">)</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">90</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_layout</span><span class="op">(</span>
-    frame <span class="op">=</span> <span class="cn">FALSE</span>,
-    earth.boundary <span class="op">=</span> <span class="cn">TRUE</span>,
-    earth.boundary.color <span class="op">=</span> <span class="st">"grey90"</span>,
-    main.title <span class="op">=</span> <span class="st">"UN Members, 1980"</span>,
-    main.title.position <span class="op">=</span> <span class="st">"center"</span>,
-    main.title.size <span class="op">=</span> <span class="fl">1</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#E0E0E0"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_shape</span><span class="op">(</span><span class="va">UN1980</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#74A9CF"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
-  <span class="op">)</span>
-
-<span class="co"># UN 2010----</span>
-<span class="fu">tm_shape</span><span class="op">(</span><span class="va">world</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_graticules</span><span class="op">(</span>
-    labels.show <span class="op">=</span> <span class="cn">FALSE</span>,
-    col <span class="op">=</span> <span class="st">"grey90"</span>,
-    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>, <span class="fl">180</span>, <span class="fl">20</span><span class="op">)</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">90</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_layout</span><span class="op">(</span>
-    frame <span class="op">=</span> <span class="cn">FALSE</span>,
-    earth.boundary <span class="op">=</span> <span class="cn">TRUE</span>,
-    earth.boundary.color <span class="op">=</span> <span class="st">"grey90"</span>,
-    main.title <span class="op">=</span> <span class="st">"UN Members, 2010"</span>,
-    main.title.position <span class="op">=</span> <span class="st">"center"</span>,
-    main.title.size <span class="op">=</span> <span class="fl">1</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#E0E0E0"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_shape</span><span class="op">(</span><span class="va">UN2010</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"#74A9CF"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
-  <span class="op">)</span></code></pre></div>
-<p><img src="UNMaps-1.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%"><img src="UNMaps-2.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%"><img src="UNMaps-3.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%"></p>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p><img src="UNMaps.png" width="100%"></p>
 </div>
 <div id="number-of-shared-memberships" class="section level2">
 <h2 class="hasAnchor">
@@ -304,8 +234,10 @@
 
 <span class="co"># Shared memberships with Australia</span>
 
-<span class="va">shared</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">2014</span><span class="op">)</span>
+<span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>,
+  year <span class="op">=</span> <span class="fl">2014</span>
+<span class="op">)</span>
 <span class="va">shared</span><span class="op">$</span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">shared</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>
 
 <span class="co"># ISO3 Code</span>
@@ -324,38 +256,51 @@
 
 <span class="co"># Plot with custom palette</span>
 
-<span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span><span class="fl">5</span>, palette <span class="op">=</span> <span class="st">"Blues"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span><span class="fl">10</span>, palette <span class="op">=</span> <span class="st">"Lajolla"</span><span class="op">)</span>
 
-<span class="fu">tm_shape</span><span class="op">(</span><span class="va">sharedmap</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_graticules</span><span class="op">(</span>
-    labels.show <span class="op">=</span> <span class="cn">FALSE</span>,
-    col <span class="op">=</span> <span class="st">"grey90"</span>,
-    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>, <span class="fl">180</span>, <span class="fl">20</span><span class="op">)</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">90</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
+<span class="co"># Plot</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sharedmap</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">shared</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Australia</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">sharedmap</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"AUS"</span><span class="op">)</span>,
+    fill <span class="op">=</span> <span class="st">"black"</span>,
+    color <span class="op">=</span> <span class="cn">NA</span>,
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_layout</span><span class="op">(</span>
-    frame <span class="op">=</span> <span class="cn">FALSE</span>,
-    earth.boundary <span class="op">=</span> <span class="cn">TRUE</span>,
-    earth.boundary.color <span class="op">=</span> <span class="st">"grey90"</span>,
-    main.title <span class="op">=</span> <span class="st">"Shared Full Memberships with Australia (2014)"</span>,
-    main.title.position <span class="op">=</span> <span class="st">"center"</span>,
-    main.title.size <span class="op">=</span> <span class="fl">1</span>,
-    legend.title.size <span class="op">=</span> <span class="fl">0.8</span>
+  <span class="co"># Robinson</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="st">"ESRI:54030"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradientn</a></span><span class="op">(</span>
+    colours <span class="op">=</span> <span class="va">pal</span>,
+    n.breaks <span class="op">=</span> <span class="fl">10</span>,
+    guide <span class="op">=</span> <span class="st">"legend"</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"shared"</span>,
-    title <span class="op">=</span> <span class="st">"number of IGOs"</span>,
-    palette <span class="op">=</span> <span class="va">pal</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>
+    direction <span class="op">=</span> <span class="st">"horizontal"</span>,
+    title.position <span class="op">=</span> <span class="st">"top"</span>,
+    label.position <span class="op">=</span> <span class="st">"bottom"</span>,
+    nrow <span class="op">=</span> <span class="fl">1</span>,
+    keyheight <span class="op">=</span> <span class="fl">0.5</span>,
+    keywidth <span class="op">=</span> <span class="fl">1.5</span>
+  <span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Shared Full Memberships with Australia (2014)"</span>,
+    fill <span class="op">=</span> <span class="st">"Number of IGOs shared"</span>,
+    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_shape</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">sharedmap</span>, <span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"AUS"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_polygons</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"black"</span>,
-    border.col <span class="op">=</span> <span class="st">"white"</span>,
-    lwd <span class="op">=</span> <span class="fl">0.1</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
+    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
+    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>
+      face <span class="op">=</span> <span class="st">"italic"</span>,
+      size <span class="op">=</span> <span class="fl">8</span>,
+      hjust <span class="op">=</span> <span class="fl">0.05</span>
+    <span class="op">)</span>,
+    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>,
+    legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
   <span class="op">)</span></code></pre></div>
-<p><img src="AustShared-1.png" title="plot of chunk AustShared" alt="plot of chunk AustShared" width="100%"></p>
+<p><img src="AusShared.png" width="100%"></p>
 </div>
 <div id="cross-shared-memberships" class="section level2">
 <h2 class="hasAnchor">
@@ -364,9 +309,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Get shapes</span>
-<span class="va">countries.sf</span> <span class="op">&lt;-</span>
-  <span class="fu">gisco_get_countries</span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">st_transform</span><span class="op">(</span><span class="fl">2163</span><span class="op">)</span>
+<span class="va">countries.sf</span> <span class="op">&lt;-</span> <span class="fu">gisco_get_countries</span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># Select years</span>
 <span class="va">years</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1930</span>, <span class="fl">2010</span>, <span class="fl">10</span><span class="op">)</span>
@@ -390,24 +333,42 @@
 <span class="co"># Create map</span>
 <span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">countries.sf</span>, <span class="va">Final</span><span class="op">)</span>
 
-<span class="co"># Limits to exclude offshore</span>
-<span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu">st_bbox</span><span class="op">(</span><span class="va">countries.sf</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ISO3_CODE</span> <span class="op">!=</span> <span class="st">"USA"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># Map</span>
-<span class="fu">tm_shape</span><span class="op">(</span><span class="va">map</span>, bbox <span class="op">=</span> <span class="va">bbox</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_fill</span><span class="op">(</span>
-    col <span class="op">=</span> <span class="st">"value"</span>,
-    title <span class="op">=</span> <span class="st">"number of IGOs"</span>,
-    palette <span class="op">=</span> <span class="st">"YlGn"</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>
+    crs <span class="op">=</span> <span class="fl">2163</span>,
+    xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3200000</span>, <span class="fl">3333018</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_layout</span><span class="op">(</span>
-    main.title <span class="op">=</span> <span class="st">"Shared Full Memberships on North America (1930-2010)"</span>,
-    main.title.position <span class="op">=</span> <span class="st">"center"</span>,
-    main.title.size <span class="op">=</span> <span class="fl">1</span>,
-    legend.title.size <span class="op">=</span> <span class="fl">0.8</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>,
+    ncol <span class="op">=</span> <span class="fl">3</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">tm_facets</span><span class="op">(</span>by <span class="op">=</span> <span class="st">"year"</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
-<p><img src="NAShared-1.png" title="plot of chunk NAShared" alt="plot of chunk NAShared" width="100%"></p>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradientn</a></span><span class="op">(</span>
+    colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"YlGn"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">10</span><span class="op">)</span>,
+    guide <span class="op">=</span> <span class="st">"legend"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>keyheight <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Shared Full Memberships on North America"</span>,
+    subtitle <span class="op">=</span> <span class="st">"(1930-2010)"</span>,
+    fill <span class="op">=</span> <span class="st">"shared IGOs"</span>,
+    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span>,
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
+    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,
+    plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="fl">3</span>, b <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,
+    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>
+      face <span class="op">=</span> <span class="st">"italic"</span>,
+      hjust <span class="op">=</span> <span class="fl">0.05</span>
+    <span class="op">)</span>,
+    legend.box.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>l <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>,
+    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,
+    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>
+  <span class="op">)</span></code></pre></div>
+<p><img src="NAShared.png" width="100%"></p>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="hasAnchor">
