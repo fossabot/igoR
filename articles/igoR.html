@@ -172,16 +172,14 @@
 <h3 class="hasAnchor">
 <a href="#initial-setup" class="anchor"></a>Initial Setup</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span>
 
 <span class="co"># Additional libraries</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
 <details><p><summary><strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code></summary></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">theme_igoR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">theme_igoR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
   axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
   axis.line.x.bottom <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span><span class="st">"black"</span><span class="op">)</span>,
   axis.line.y.left <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span><span class="st">"black"</span><span class="op">)</span>,
@@ -208,8 +206,7 @@
 <a href="#igos-overview" class="anchor"></a>IGOs overview</h3>
 <p>The following code extracts the number of IGOs and states included on this package. The years available are 1816 to 2014.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Summarize</span>
+<code class="sourceCode R"><span class="co"># Summarize</span>
 <span class="va">igos_by_year</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"keep"</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -246,8 +243,7 @@ Figure 1. IGOs and states in the world system, 1816-2014
 <a href="#igo-births-and-deaths" class="anchor"></a>IGO Births and deaths</h3>
 <p>This plot shows how many IGOs were “born” and “died” on each year</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Births and deads by year</span>
+<code class="sourceCode R"><span class="co"># Births and deads by year</span>
 
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="op">)</span>
 
@@ -360,8 +356,7 @@ Figure 2. Birth and death rates of IGOs, 1816-2014
   <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">regions</span><span class="op">$</span><span class="va">ionum</span> <span class="op">%in%</span> <span class="va">MiddleEast</span>, <span class="st">"Middle East"</span>, <span class="va">regions</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></code></pre></div>
 </details><p>After we have created a data frame with the regions, we can classify the IGOs by region.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># regions dataset created on previous chunk</span>
+<code class="sourceCode R"><span class="co"># regions dataset created on previous chunk</span>
 
 <span class="co"># All IGOs</span>
 <span class="va">alligos</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"ionum"</span><span class="op">)</span><span class="op">]</span>
@@ -401,8 +396,7 @@ Figure 3. IGO counts across regions, 1816-2014
 <a href="#selected-countries-asia" class="anchor"></a>Selected Countries: Asia</h3>
 <p>Number of memberships of a country. We select here five countries on Asia: India, China, Pakistan, Indonesia and Bangladesh.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">asia5_cntries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">asia5_cntries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
   <span class="st">"China"</span>, <span class="st">"India"</span>,
   <span class="st">"Pakistan"</span>, <span class="st">"Indonesia"</span>,
   <span class="st">"Bangladesh"</span>
@@ -459,8 +453,7 @@ Figure 4. IGO membership: five states in Asia, 1865-2014
 <a href="#shared-memberships" class="anchor"></a>Shared memberships</h3>
 <p>Number of shared full memberships between Spain and four selected countries:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">selected_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">selected_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
   <span class="st">"France"</span>,
   <span class="st">"Morocco"</span>,
   <span class="st">"China"</span>,
