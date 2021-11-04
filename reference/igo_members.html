@@ -208,241 +208,248 @@ on <a href='state_year_format3.html'>state_year_format3</a>.</p></td>
 <code><a href='igo_search.html'>igo_search()</a></code>, <a href='state_year_format3.html'>state_year_format3</a>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Composition on two different dates</span>
-<span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span>, year <span class='op'>=</span> <span class='fl'>1993</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    ioname ccode       state       statenme year value        category
-#&gt; 1      EU   211     belgium        Belgium 1993     1 Full Membership
-#&gt; 2      EU   390     denmark        Denmark 1993     1 Full Membership
-#&gt; 3      EU   220      france         France 1993     1 Full Membership
-#&gt; 4      EU   255     germany        Germany 1993     1 Full Membership
-#&gt; 5      EU   350      greece         Greece 1993     1 Full Membership
-#&gt; 6      EU   205     ireland        Ireland 1993     1 Full Membership
-#&gt; 7      EU   325       italy          Italy 1993     1 Full Membership
-#&gt; 8      EU   212  luxembourg     Luxembourg 1993     1 Full Membership
-#&gt; 9      EU   210 netherlands    Netherlands 1993     1 Full Membership
-#&gt; 10     EU   235    portugal       Portugal 1993     1 Full Membership
-#&gt; 11     EU   230       spain          Spain 1993     1 Full Membership
-#&gt; 12     EU   200          uk United Kingdom 1993     1 Full Membership
-#&gt;           orgname
-#&gt; 1  European Union
-#&gt; 2  European Union
-#&gt; 3  European Union
-#&gt; 4  European Union
-#&gt; 5  European Union
-#&gt; 6  European Union
-#&gt; 7  European Union
-#&gt; 8  European Union
-#&gt; 9  European Union
-#&gt; 10 European Union
-#&gt; 11 European Union
-#&gt; 12 European Union</div><div class='input'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    ioname ccode       state       statenme year value        category
-#&gt; 1      EU   305     austria        Austria 2014     1 Full Membership
-#&gt; 2      EU   211     belgium        Belgium 2014     1 Full Membership
-#&gt; 3      EU   355    bulgaria       Bulgaria 2014     1 Full Membership
-#&gt; 4      EU   344     croatia        Croatia 2014     1 Full Membership
-#&gt; 5      EU   352      cyprus         Cyprus 2014     1 Full Membership
-#&gt; 6      EU   316    czechrep Czech Republic 2014     1 Full Membership
-#&gt; 7      EU   390     denmark        Denmark 2014     1 Full Membership
-#&gt; 8      EU   366     estonia        Estonia 2014     1 Full Membership
-#&gt; 9      EU   375     finland        Finland 2014     1 Full Membership
-#&gt; 10     EU   220      france         France 2014     1 Full Membership
-#&gt; 11     EU   255     germany        Germany 2014     1 Full Membership
-#&gt; 12     EU   350      greece         Greece 2014     1 Full Membership
-#&gt; 13     EU   310     hungary        Hungary 2014     1 Full Membership
-#&gt; 14     EU   205     ireland        Ireland 2014     1 Full Membership
-#&gt; 15     EU   325       italy          Italy 2014     1 Full Membership
-#&gt; 16     EU   367      latvia         Latvia 2014     1 Full Membership
-#&gt; 17     EU   368   lithuania      Lithuania 2014     1 Full Membership
-#&gt; 18     EU   212  luxembourg     Luxembourg 2014     1 Full Membership
-#&gt; 19     EU   338       malta          Malta 2014     1 Full Membership
-#&gt; 20     EU   210 netherlands    Netherlands 2014     1 Full Membership
-#&gt; 21     EU   290      poland         Poland 2014     1 Full Membership
-#&gt; 22     EU   235    portugal       Portugal 2014     1 Full Membership
-#&gt; 23     EU   360     romania        Romania 2014     1 Full Membership
-#&gt; 24     EU   317    slovakia       Slovakia 2014     1 Full Membership
-#&gt; 25     EU   349    slovenia       Slovenia 2014     1 Full Membership
-#&gt; 26     EU   230       spain          Spain 2014     1 Full Membership
-#&gt; 27     EU   380      sweden         Sweden 2014     1 Full Membership
-#&gt; 28     EU   200          uk United Kingdom 2014     1 Full Membership
-#&gt;           orgname
-#&gt; 1  European Union
-#&gt; 2  European Union
-#&gt; 3  European Union
-#&gt; 4  European Union
-#&gt; 5  European Union
-#&gt; 6  European Union
-#&gt; 7  European Union
-#&gt; 8  European Union
-#&gt; 9  European Union
-#&gt; 10 European Union
-#&gt; 11 European Union
-#&gt; 12 European Union
-#&gt; 13 European Union
-#&gt; 14 European Union
-#&gt; 15 European Union
-#&gt; 16 European Union
-#&gt; 17 European Union
-#&gt; 18 European Union
-#&gt; 19 European Union
-#&gt; 20 European Union
-#&gt; 21 European Union
-#&gt; 22 European Union
-#&gt; 23 European Union
-#&gt; 24 European Union
-#&gt; 25 European Union
-#&gt; 26 European Union
-#&gt; 27 European Union
-#&gt; 28 European Union</div><div class='input'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"NAFTA"</span>, year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1995</span><span class='op'>:</span><span class='fl'>1998</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    ioname ccode  state                 statenme year value        category
-#&gt; 1   NAFTA    20 canada                   Canada 1995     1 Full Membership
-#&gt; 2   NAFTA    70 mexico                   Mexico 1995     1 Full Membership
-#&gt; 3   NAFTA     2    usa United States of America 1995     1 Full Membership
-#&gt; 4   NAFTA    20 canada                   Canada 1996     1 Full Membership
-#&gt; 5   NAFTA    70 mexico                   Mexico 1996     1 Full Membership
-#&gt; 6   NAFTA     2    usa United States of America 1996     1 Full Membership
-#&gt; 7   NAFTA    20 canada                   Canada 1997     1 Full Membership
-#&gt; 8   NAFTA    70 mexico                   Mexico 1997     1 Full Membership
-#&gt; 9   NAFTA     2    usa United States of America 1997     1 Full Membership
-#&gt; 10  NAFTA    20 canada                   Canada 1998     1 Full Membership
-#&gt; 11  NAFTA    70 mexico                   Mexico 1998     1 Full Membership
-#&gt; 12  NAFTA     2    usa United States of America 1998     1 Full Membership
-#&gt;               orgname
-#&gt; 1  North American FTA
-#&gt; 2  North American FTA
-#&gt; 3  North American FTA
-#&gt; 4  North American FTA
-#&gt; 5  North American FTA
-#&gt; 6  North American FTA
-#&gt; 7  North American FTA
-#&gt; 8  North American FTA
-#&gt; 9  North American FTA
-#&gt; 10 North American FTA
-#&gt; 11 North American FTA
-#&gt; 12 North American FTA</div><div class='input'>
-<span class='co'># Extract different status</span>
-<span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"ACCT"</span>, status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Associate Membership"</span>, <span class='st'>"Observer"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    ioname ccode          state               statenme year value
-#&gt; 1    ACCT   305        austria                Austria 2014     3
-#&gt; 2    ACCT   346         bosnia Bosnia and Herzegovina 2014     3
-#&gt; 3    ACCT    94      costarica             Costa Rica 2014     3
-#&gt; 4    ACCT   344        croatia                Croatia 2014     3
-#&gt; 5    ACCT   352         cyprus                 Cyprus 2014     2
-#&gt; 6    ACCT   316       czechrep         Czech Republic 2014     3
-#&gt; 7    ACCT    42    domrepublic     Dominican Republic 2014     3
-#&gt; 8    ACCT   366        estonia                Estonia 2014     3
-#&gt; 9    ACCT   372        georgia                Georgia 2014     3
-#&gt; 10   ACCT   310        hungary                Hungary 2014     3
-#&gt; 11   ACCT   347         kosovo                 Kosovo 2014     2
-#&gt; 12   ACCT   367         latvia                 Latvia 2014     3
-#&gt; 13   ACCT   368      lithuania              Lithuania 2014     3
-#&gt; 14   ACCT    70         mexico                 Mexico 2014     3
-#&gt; 15   ACCT   341     montenegro             Montenegro 2014     3
-#&gt; 16   ACCT   541     mozambique             Mozambique 2014     3
-#&gt; 17   ACCT   290         poland                 Poland 2014     3
-#&gt; 18   ACCT   694          qatar                  Qatar 2014     2
-#&gt; 19   ACCT   317       slovakia               Slovakia 2014     3
-#&gt; 20   ACCT   349       slovenia               Slovenia 2014     3
-#&gt; 21   ACCT   800       thailand               Thailand 2014     3
-#&gt; 22   ACCT   696            uae   United Arab Emirates 2014     3
-#&gt; 23   ACCT   369        ukraine                Ukraine 2014     3
-#&gt; 24   ACCT   165        uruguay                Uruguay 2014     3
-#&gt; 25   ACCT   345 yugoslaviaserb             Yugoslavia 2014     3
-#&gt;                category            orgname
-#&gt; 1              Observer Francophone Agency
-#&gt; 2              Observer Francophone Agency
-#&gt; 3              Observer Francophone Agency
-#&gt; 4              Observer Francophone Agency
-#&gt; 5  Associate Membership Francophone Agency
-#&gt; 6              Observer Francophone Agency
-#&gt; 7              Observer Francophone Agency
-#&gt; 8              Observer Francophone Agency
-#&gt; 9              Observer Francophone Agency
-#&gt; 10             Observer Francophone Agency
-#&gt; 11 Associate Membership Francophone Agency
-#&gt; 12             Observer Francophone Agency
-#&gt; 13             Observer Francophone Agency
-#&gt; 14             Observer Francophone Agency
-#&gt; 15             Observer Francophone Agency
-#&gt; 16             Observer Francophone Agency
-#&gt; 17             Observer Francophone Agency
-#&gt; 18 Associate Membership Francophone Agency
-#&gt; 19             Observer Francophone Agency
-#&gt; 20             Observer Francophone Agency
-#&gt; 21             Observer Francophone Agency
-#&gt; 22             Observer Francophone Agency
-#&gt; 23             Observer Francophone Agency
-#&gt; 24             Observer Francophone Agency
-#&gt; 25             Observer Francophone Agency</div><div class='input'>
-<span class='co'># States no members of the UN</span>
-<span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"UN"</span>, status <span class='op'>=</span> <span class='st'>"No Membership"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   ioname ccode  state statenme year value      category        orgname
-#&gt; 1     UN   347 kosovo   Kosovo 2014     0 No Membership United Nations
-#&gt; 2     UN   713 taiwan   Taiwan 2014     0 No Membership United Nations</div><div class='input'>
-<span class='co'># Vectorized</span>
-
-<span class='fu'>igo_members</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"NAFTA"</span>, <span class='st'>"EU"</span><span class='op'>)</span>, year <span class='op'>=</span> <span class='fl'>1993</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    ioname ccode       state                 statenme year value        category
-#&gt; 1   NAFTA    20      canada                   Canada 1993     1 Full Membership
-#&gt; 2   NAFTA    70      mexico                   Mexico 1993     1 Full Membership
-#&gt; 3   NAFTA     2         usa United States of America 1993     1 Full Membership
-#&gt; 4      EU   211     belgium                  Belgium 1993     1 Full Membership
-#&gt; 5      EU   390     denmark                  Denmark 1993     1 Full Membership
-#&gt; 6      EU   220      france                   France 1993     1 Full Membership
-#&gt; 7      EU   255     germany                  Germany 1993     1 Full Membership
-#&gt; 8      EU   350      greece                   Greece 1993     1 Full Membership
-#&gt; 9      EU   205     ireland                  Ireland 1993     1 Full Membership
-#&gt; 10     EU   325       italy                    Italy 1993     1 Full Membership
-#&gt; 11     EU   212  luxembourg               Luxembourg 1993     1 Full Membership
-#&gt; 12     EU   210 netherlands              Netherlands 1993     1 Full Membership
-#&gt; 13     EU   235    portugal                 Portugal 1993     1 Full Membership
-#&gt; 14     EU   230       spain                    Spain 1993     1 Full Membership
-#&gt; 15     EU   200          uk           United Kingdom 1993     1 Full Membership
-#&gt;               orgname
-#&gt; 1  North American FTA
-#&gt; 2  North American FTA
-#&gt; 3  North American FTA
-#&gt; 4      European Union
-#&gt; 5      European Union
-#&gt; 6      European Union
-#&gt; 7      European Union
-#&gt; 8      European Union
-#&gt; 9      European Union
-#&gt; 10     European Union
-#&gt; 11     European Union
-#&gt; 12     European Union
-#&gt; 13     European Union
-#&gt; 14     European Union
-#&gt; 15     European Union</div><div class='input'>
-<span class='co'># Use countrycodes package to get additional codes</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://vincentarelbundock.github.io/countrycode/'>countrycode</a></span><span class='op'>)</span>
-  <span class='va'>EU</span> <span class='op'>&lt;-</span> <span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span><span class='op'>)</span>
-  <span class='va'>EU</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>,
-    origin <span class='op'>=</span> <span class='st'>"cown"</span>,
-    destination <span class='op'>=</span> <span class='st'>"iso3c"</span>
-  <span class='op'>)</span>
-  <span class='va'>EU</span><span class='op'>$</span><span class='va'>continent</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>,
-    origin <span class='op'>=</span> <span class='st'>"cown"</span>,
-    destination <span class='op'>=</span> <span class='st'>"continent"</span>
-  <span class='op'>)</span>
-
-  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt;   ioname ccode    state       statenme year value        category
-#&gt; 1     EU   305  austria        Austria 2014     1 Full Membership
-#&gt; 2     EU   211  belgium        Belgium 2014     1 Full Membership
-#&gt; 3     EU   355 bulgaria       Bulgaria 2014     1 Full Membership
-#&gt; 4     EU   344  croatia        Croatia 2014     1 Full Membership
-#&gt; 5     EU   352   cyprus         Cyprus 2014     1 Full Membership
-#&gt; 6     EU   316 czechrep Czech Republic 2014     1 Full Membership
-#&gt;          orgname iso3c continent
-#&gt; 1 European Union   AUT    Europe
-#&gt; 2 European Union   BEL    Europe
-#&gt; 3 European Union   BGR    Europe
-#&gt; 4 European Union   HRV    Europe
-#&gt; 5 European Union   CYP      Asia
-#&gt; 6 European Union   CZE    Europe</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># Composition on two different dates</span></span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span>, year <span class='op'>=</span> <span class='fl'>1993</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ioname ccode       state       statenme year value        category</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      EU   211     belgium        Belgium 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      EU   390     denmark        Denmark 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      EU   220      france         France 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      EU   255     germany        Germany 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      EU   350      greece         Greece 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      EU   205     ireland        Ireland 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      EU   325       italy          Italy 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      EU   212  luxembourg     Luxembourg 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      EU   210 netherlands    Netherlands 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     EU   235    portugal       Portugal 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     EU   230       spain          Spain 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     EU   200          uk United Kingdom 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 European Union</span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ioname ccode       state       statenme year value        category</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      EU   305     austria        Austria 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      EU   211     belgium        Belgium 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      EU   355    bulgaria       Bulgaria 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      EU   344     croatia        Croatia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      EU   352      cyprus         Cyprus 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      EU   316    czechrep Czech Republic 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      EU   390     denmark        Denmark 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      EU   366     estonia        Estonia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      EU   375     finland        Finland 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     EU   220      france         France 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     EU   255     germany        Germany 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     EU   350      greece         Greece 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13     EU   310     hungary        Hungary 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14     EU   205     ireland        Ireland 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15     EU   325       italy          Italy 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16     EU   367      latvia         Latvia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17     EU   368   lithuania      Lithuania 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18     EU   212  luxembourg     Luxembourg 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19     EU   338       malta          Malta 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20     EU   210 netherlands    Netherlands 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21     EU   290      poland         Poland 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22     EU   235    portugal       Portugal 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23     EU   360     romania        Romania 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24     EU   317    slovakia       Slovakia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25     EU   349    slovenia       Slovenia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26     EU   230       spain          Spain 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27     EU   380      sweden         Sweden 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28     EU   200          uk United Kingdom 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27 European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28 European Union</span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"NAFTA"</span>, year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1995</span><span class='op'>:</span><span class='fl'>1998</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ioname ccode  state                 statenme year value        category</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1   NAFTA    20 canada                   Canada 1995     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2   NAFTA    70 mexico                   Mexico 1995     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3   NAFTA     2    usa United States of America 1995     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4   NAFTA    20 canada                   Canada 1996     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5   NAFTA    70 mexico                   Mexico 1996     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   NAFTA     2    usa United States of America 1996     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7   NAFTA    20 canada                   Canada 1997     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8   NAFTA    70 mexico                   Mexico 1997     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9   NAFTA     2    usa United States of America 1997     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10  NAFTA    20 canada                   Canada 1998     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11  NAFTA    70 mexico                   Mexico 1998     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12  NAFTA     2    usa United States of America 1998     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>               orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 North American FTA</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Extract different status</span></span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"ACCT"</span>, status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Associate Membership"</span>, <span class='st'>"Observer"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ioname ccode          state               statenme year value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1    ACCT   305        austria                Austria 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2    ACCT   346         bosnia Bosnia and Herzegovina 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    ACCT    94      costarica             Costa Rica 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    ACCT   344        croatia                Croatia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    ACCT   352         cyprus                 Cyprus 2014     2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    ACCT   316       czechrep         Czech Republic 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    ACCT    42    domrepublic     Dominican Republic 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    ACCT   366        estonia                Estonia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    ACCT   372        georgia                Georgia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   ACCT   310        hungary                Hungary 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   ACCT   347         kosovo                 Kosovo 2014     2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   ACCT   367         latvia                 Latvia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13   ACCT   368      lithuania              Lithuania 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14   ACCT    70         mexico                 Mexico 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15   ACCT   341     montenegro             Montenegro 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16   ACCT   541     mozambique             Mozambique 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17   ACCT   290         poland                 Poland 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18   ACCT   694          qatar                  Qatar 2014     2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19   ACCT   317       slovakia               Slovakia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20   ACCT   349       slovenia               Slovenia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21   ACCT   800       thailand               Thailand 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22   ACCT   696            uae   United Arab Emirates 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   ACCT   369        ukraine                Ukraine 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24   ACCT   165        uruguay                Uruguay 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25   ACCT   345 yugoslaviaserb             Yugoslavia 2014     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                category            orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  Associate Membership Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9              Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 Associate Membership Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 Associate Membership Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24             Observer Francophone Agency</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25             Observer Francophone Agency</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># States no members of the UN</span></span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"UN"</span>, status <span class='op'>=</span> <span class='st'>"No Membership"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ioname ccode  state statenme year value      category        orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1     UN   347 kosovo   Kosovo 2014     0 No Membership United Nations</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2     UN   713 taiwan   Taiwan 2014     0 No Membership United Nations</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Vectorized</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>igo_members</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"NAFTA"</span>, <span class='st'>"EU"</span><span class='op'>)</span>, year <span class='op'>=</span> <span class='fl'>1993</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ioname ccode       state                 statenme year value        category</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1   NAFTA    20      canada                   Canada 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2   NAFTA    70      mexico                   Mexico 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3   NAFTA     2         usa United States of America 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      EU   211     belgium                  Belgium 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      EU   390     denmark                  Denmark 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      EU   220      france                   France 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      EU   255     germany                  Germany 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      EU   350      greece                   Greece 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      EU   205     ireland                  Ireland 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     EU   325       italy                    Italy 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     EU   212  luxembourg               Luxembourg 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     EU   210 netherlands              Netherlands 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13     EU   235    portugal                 Portugal 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14     EU   230       spain                    Spain 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15     EU   200          uk           United Kingdom 1993     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>               orgname</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  North American FTA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13     European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14     European Union</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15     European Union</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Use countrycodes package to get additional codes</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://vincentarelbundock.github.io/countrycode/'>countrycode</a></span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='va'>EU</span> <span class='op'>&lt;-</span> <span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='va'>EU</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>,</span>
+<span class='r-in'>    origin <span class='op'>=</span> <span class='st'>"cown"</span>,</span>
+<span class='r-in'>    destination <span class='op'>=</span> <span class='st'>"iso3c"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'>  <span class='va'>EU</span><span class='op'>$</span><span class='va'>continent</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://vincentarelbundock.github.io/countrycode/reference/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>,</span>
+<span class='r-in'>    origin <span class='op'>=</span> <span class='st'>"cown"</span>,</span>
+<span class='r-in'>    destination <span class='op'>=</span> <span class='st'>"continent"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ioname ccode    state       statenme year value        category</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1     EU   305  austria        Austria 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2     EU   211  belgium        Belgium 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3     EU   355 bulgaria       Bulgaria 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4     EU   344  croatia        Croatia 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5     EU   352   cyprus         Cyprus 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6     EU   316 czechrep Czech Republic 2014     1 Full Membership</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          orgname iso3c continent</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 European Union   AUT    Europe</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 European Union   BEL    Europe</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 European Union   BGR    Europe</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 European Union   HRV    Europe</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5 European Union   CYP      Asia</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6 European Union   CZE    Europe</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
