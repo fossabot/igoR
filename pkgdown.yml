@@ -1,11 +1,11 @@
 pandoc: 2.14.2
-pkgdown: 2.0.5
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   reference: reference.html
   igoR: igoR.html
   mapping: mapping.html
-last_built: 2022-07-04T19:47Z
+last_built: 2022-08-02T08:50Z
 urls:
   reference: https://dieghernan.github.io/igoR/reference
   article: https://dieghernan.github.io/igoR/articles
