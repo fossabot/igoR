@@ -94,7 +94,8 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Mapping IGOs</h1>
-                        <h4 data-toc-skip class="author">Diego Hernangómez</h4>
+                        <h4 data-toc-skip class="author">Diego
+Hernangómez</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/igoR/blob/main/vignettes/mapping.Rmd" class="external-link"><code>vignettes/mapping.Rmd</code></a></small>
@@ -103,15 +104,21 @@
 
     
     
-<p>Maps are a powerful tool to show data. As the scope of <code>igoR</code> are the InterGovermental Organizations, mapping and IGOs are a perfect match.</p>
-<p>This vignette provides some geospatial visualizations using the IGO datasets <span class="citation">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this package. Specific packages used for geospatial data:</p>
+<p>Maps are a powerful tool to show data. As the scope of
+<code>igoR</code> are the InterGovermental Organizations, mapping and
+IGOs are a perfect match.</p>
+<p>This vignette provides some geospatial visualizations using the IGO
+datasets <span class="citation">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this
+package. Specific packages used for geospatial data:</p>
 <ul>
 <li>
-<code>giscoR</code> for extracting the shapefiles of the countries.</li>
+<code>giscoR</code> for extracting the shapefiles of the
+countries.</li>
 <li>
 <code>ggplot2</code> for plotting.</li>
 </ul>
-<p>Also <code>countrycode</code> is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
+<p>Also <code>countrycode</code> is a very handy package for translating
+between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
@@ -126,7 +133,8 @@
 <div class="section level2">
 <h2 id="evolution-of-the-composition-of-un">Evolution of the composition of UN<a class="anchor" aria-label="anchor" href="#evolution-of-the-composition-of-un"></a>
 </h2>
-<p>The following maps shows the evolution of countries that are members of the United Nations.</p>
+<p>The following maps shows the evolution of countries that are members
+of the United Nations.</p>
 <p>First we should extract the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract shapes</span></span>
@@ -173,7 +181,9 @@
 <span><span class="co"># Join all</span></span>
 <span></span>
 <span><span class="va">UN_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">UN1950</span>, <span class="va">UN1980</span>, <span class="va">UN2010</span><span class="op">)</span></span></code></pre></div>
-<p>Note that the map is not completely accurate, as the base shapefile contains the countries that exists on 2016. Some countries, as Czechoslovakia, East or West Germany are not included.</p>
+<p>Note that the map is not completely accurate, as the base shapefile
+contains the countries that exists on 2016. Some countries, as
+Czechoslovakia, East or West Germany are not included.</p>
 <p>Now we are ready to plot with <code>ggplot2</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -201,7 +211,8 @@
 <h2 id="number-of-shared-memberships">Number of shared memberships<a class="anchor" aria-label="anchor" href="#number-of-shared-memberships"></a>
 </h2>
 <p>Shared memberships are useful for identifying regional patterns.</p>
-<p>The following code produces a map showing the number of full memberships shared with Australia for each country on the world:</p>
+<p>The following code produces a map showing the number of full
+memberships shared with Australia for each country on the world:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">## Number of igos shared - 2014</span></span>
@@ -285,7 +296,9 @@
 <div class="section level2">
 <h2 id="cross-shared-memberships">Cross-shared memberships<a class="anchor" aria-label="anchor" href="#cross-shared-memberships"></a>
 </h2>
-<p>The following map shows how the relationships between the countries of North America has flourished on the last 90 years, using a year as representative of each decade.</p>
+<p>The following map shows how the relationships between the countries
+of North America has flourished on the last 90 years, using a year as
+representative of each decade.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Get shapes</span></span>
@@ -355,7 +368,10 @@
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-pevehouse2020" class="csl-entry">
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer Jamison. 2020. <span>“Tracking Organizations in the World: The Correlates of War IGO Version 3.0 Datasets.”</span> <em>Journal of Peace Research</em> 57 (3): 492–503.
+Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Spencer Jamison. 2020. <span>“Tracking Organizations in the World: The
+Correlates of War IGO Version 3.0 Datasets.”</span> <em>Journal of Peace
+Research</em> 57 (3): 492–503.
 </div>
 </div>
 </div>

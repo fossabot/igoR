@@ -94,7 +94,8 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Get started with the igoR package</h1>
-                        <h4 data-toc-skip class="author">Diego Hernangómez</h4>
+                        <h4 data-toc-skip class="author">Diego
+Hernangómez</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/igoR/blob/main/vignettes/igoR.Rmd" class="external-link"><code>vignettes/igoR.Rmd</code></a></small>
@@ -103,9 +104,17 @@
 
     
     
-<p>This vignette is meant to provide <strong>useRs</strong> with an visual, explorable introduction to the capabilities of the <code>igoR</code> package.</p>
-<p>The analysis would be based on those provided on <span class="citation">(<a href="#ref-pevehouse2020" role="doc-biblioref">J. C. Pevehouse et al. 2020</a>)</span>. For more information on the IGO data sets and additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs" class="external-link">Intergovernmental Organizations (v3)</a>.</p>
-<p><em>Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata <code>.dta</code> format). However,</em> <code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> <em>function provides similar results.</em></p>
+<p>This vignette is meant to provide <strong>useRs</strong> with an
+visual, explorable introduction to the capabilities of the
+<code>igoR</code> package.</p>
+<p>The analysis would be based on those provided on <span class="citation">(<a href="#ref-pevehouse2020" role="doc-biblioref">J.
+C. Pevehouse et al. 2020</a>)</span>. For more information on the IGO
+data sets and additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs" class="external-link">Intergovernmental
+Organizations (v3)</a>.</p>
+<p><em>Note that the dyadic dataset is not provided in the package, due
+its size (~500 MB on Stata <code>.dta</code> format). However,</em>
+<code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> <em>function provides similar
+results.</em></p>
 <div class="section level2">
 <h2 id="definitions">Definitions<a class="anchor" aria-label="anchor" href="#definitions"></a>
 </h2>
@@ -113,17 +122,23 @@
 <div class="section level3">
 <h3 id="what-is-an-igo">What is an IGO?<a class="anchor" aria-label="anchor" href="#what-is-an-igo"></a>
 </h3>
-<p>The definition of an Intergovernmental Organization (IGO) on the original dataset is based on the following criteria:</p>
+<p>The definition of an Intergovernmental Organization (IGO) on the
+original dataset is based on the following criteria:</p>
 <ol style="list-style-type: decimal">
-<li><p>An IGO must consist of at least three members of the <a href="https://correlatesofwar.org/data-sets/cow-country-codes" class="external-link">COW-defined state system</a>.</p></li>
-<li><p>An IGO must hold regular plenary sessions at least once every ten years</p></li>
-<li><p>An IGO must possess a permanent secretariat and corresponding headquarters.</p></li>
+<li><p>An IGO must consist of at least three members of the <a href="https://correlatesofwar.org/data-sets/cow-country-codes" class="external-link">COW-defined
+state system</a>.</p></li>
+<li><p>An IGO must hold regular plenary sessions at least once every ten
+years</p></li>
+<li><p>An IGO must possess a permanent secretariat and corresponding
+headquarters.</p></li>
 </ol>
 </div>
 <div class="section level3">
 <h3 id="when-does-an-igo-actually-begin">When does an IGO actually begin?<a class="anchor" aria-label="anchor" href="#when-does-an-igo-actually-begin"></a>
 </h3>
-<p>The data sets begins to code an IGO by identifying the first year in which the organization functions. In some cases, individual members are listed by year of accession or signature.</p>
+<p>The data sets begins to code an IGO by identifying the first year in
+which the organization functions. In some cases, individual members are
+listed by year of accession or signature.</p>
 </div>
 <div class="section level3">
 <h3 id="when-does-an-igo-die">When does an IGO die?<a class="anchor" aria-label="anchor" href="#when-does-an-igo-die"></a>
@@ -131,7 +146,8 @@
 <p>Version 3.0 of the IGO data set uses the following criteria:</p>
 <ul>
 <li>
-<p>An organization is considered terminated when the following words were used to describe the context of the organization:</p>
+<p>An organization is considered terminated when the following words
+were used to describe the context of the organization:</p>
 <ul>
 <li>Replaced;</li>
 <li>Succeeded;</li>
@@ -147,7 +163,8 @@
 <div class="section level2">
 <h2 id="analysis">Analysis<a class="anchor" aria-label="anchor" href="#analysis"></a>
 </h2>
-<p>This section provides some quick analysis based on the figures of <span class="citation">J. C. Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>.</p>
+<p>This section provides some quick analysis based on the figures of
+<span class="citation">J. C. Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>.</p>
 <div class="section level3">
 <h3 id="initial-setup">Initial Setup<a class="anchor" aria-label="anchor" href="#initial-setup"></a>
 </h3>
@@ -158,7 +175,8 @@
 <span><span class="co"># Additional libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
-<details><summary><p><strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code></p>
+<details><summary><p><strong>Custom <code>ggplot2</code> theme</strong>:
+<code>theme_igoR</code></p>
 </summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">theme_igoR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
@@ -186,7 +204,8 @@
 <div class="section level3">
 <h3 id="igos-overview">IGOs overview<a class="anchor" aria-label="anchor" href="#igos-overview"></a>
 </h3>
-<p>The following code extracts the number of IGOs and states included on this package. The years available are 1816 to 2014.</p>
+<p>The following code extracts the number of IGOs and states included on
+this package. The years available are 1816 to 2014.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Summarize</span></span>
@@ -262,7 +281,9 @@ Figure 2. Birth and death rates of IGOs, 1816-2014
 <div class="section level3">
 <h3 id="igos-across-regions">IGOs across regions<a class="anchor" aria-label="anchor" href="#igos-across-regions"></a>
 </h3>
-<p>A plot with the number of IGOs by region. The definition of region is based on the original definition by <span class="citation">J. C. Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>.</p>
+<p>A plot with the number of IGOs by region. The definition of region is
+based on the original definition by <span class="citation">J. C.
+Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>.</p>
 <details><summary><p><strong>Regions definition</strong></p>
 </summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extracted from analysis-jpr.do - See https://www.prio.org/JPR/Datasets/</span></span>
@@ -338,7 +359,8 @@ Figure 2. Birth and death rates of IGOs, 1816-2014
 <span></span>
 <span><span class="va">regions</span><span class="op">$</span><span class="va">region</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">regions</span><span class="op">$</span><span class="va">ionum</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">MiddleEast</span>, <span class="st">"Middle East"</span>, <span class="va">regions</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
-</details><p>After we have created a data frame with the regions, we can classify the IGOs by region.</p>
+</details><p>After we have created a data frame with the regions, we can classify
+the IGOs by region.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># regions dataset created on previous chunk</span></span>
@@ -379,7 +401,8 @@ Figure 3. IGO counts across regions, 1816-2014
 <div class="section level3">
 <h3 id="selected-countries-asia">Selected Countries: Asia<a class="anchor" aria-label="anchor" href="#selected-countries-asia"></a>
 </h3>
-<p>Number of memberships of a country. We select here five countries on Asia: India, China, Pakistan, Indonesia and Bangladesh.</p>
+<p>Number of memberships of a country. We select here five countries on
+Asia: India, China, Pakistan, Indonesia and Bangladesh.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">asia5_cntries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -437,7 +460,8 @@ Figure 4. IGO membership: five states in Asia, 1865-2014
 <div class="section level3">
 <h3 id="shared-memberships">Shared memberships<a class="anchor" aria-label="anchor" href="#shared-memberships"></a>
 </h3>
-<p>Number of shared full memberships between Spain and four selected countries:</p>
+<p>Number of shared full memberships between Spain and four selected
+countries:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">selected_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -491,7 +515,8 @@ Figure 4. IGO membership: five states in Asia, 1865-2014
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="igoR_files/figure-html/Fig5-1.png" alt="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014" width="100%" height="60%"><p class="caption">
-Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014
+Figure 5. Number of IGOs with full shared memberships with Spain
+(selected countries), 1816-2014
 </p>
 </div>
 </div>
@@ -501,10 +526,15 @@ Figure 5. Number of IGOs with full shared memberships with Spain (selected count
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-pevehouse2020" class="csl-entry">
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer Jamison. 2020. <span>“Tracking Organizations in the World: The Correlates of War IGO Version 3.0 Datasets.”</span> <em>Journal of Peace Research</em> 57 (3): 492–503.
+Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Spencer Jamison. 2020. <span>“Tracking Organizations in the World: The
+Correlates of War IGO Version 3.0 Datasets.”</span> <em>Journal of Peace
+Research</em> 57 (3): 492–503.
 </div>
 <div id="ref-pevehouse2019" class="csl-entry">
-Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. <span>“Codebook for Correlates of War 3 International Governmental Organizations Data Set Version 3.0.”</span> <a href="https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data" class="external-link">https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data</a>.
+Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019.
+<span>“Codebook for Correlates of War 3 International Governmental
+Organizations Data Set Version 3.0.”</span> <a href="https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data" class="external-link">https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data</a>.
 </div>
 </div>
 </div>
