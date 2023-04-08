@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="../index.html"><img src="../logo.png" alt="igoR-logo" id="navbar-logo">igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,7 +138,7 @@ of the United Nations.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract shapes</span></span>
 <span></span>
-<span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>year <span class="op">=</span> <span class="st">"2010"</span><span class="op">)</span></span>
+<span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu">gisco_get_countries</span><span class="op">(</span>year <span class="op">=</span> <span class="st">"2010"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">un</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="st">"UN"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -200,7 +200,7 @@ Czechoslovakia, East or West Germany are not included.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"UN Members"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_attributions.html" class="external-link">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="UNMaps-1.png" alt="plot of chunk UNMaps" width="100%"></p>
@@ -274,7 +274,7 @@ memberships shared with Australia for each country on the world:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Shared Full Memberships with Australia (2014)"</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">"Number of IGOs shared"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_attributions.html" class="external-link">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
@@ -298,7 +298,7 @@ of North America has flourished on the last 90 years, using a year as
 representative of each decade.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get shapes</span></span>
-<span><span class="va">countries.sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">countries.sf</span> <span class="op">&lt;-</span> <span class="fu">gisco_get_countries</span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Select years</span></span>
 <span><span class="va">years</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1930</span>, <span class="fl">2010</span>, <span class="fl">10</span><span class="op">)</span></span>
@@ -343,7 +343,7 @@ representative of each decade.</p>
 <span>    title <span class="op">=</span> <span class="st">"Shared Full Memberships on North America"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"(1930-2010)"</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">"shared IGOs"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_attributions.html" class="external-link">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    caption <span class="op">=</span> <span class="fu">gisco_attributions</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
