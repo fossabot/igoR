@@ -98,7 +98,9 @@ Project (IGO Data Stata Files).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Possible value of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table></div>
+    <p>Possible value of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <strong>Examples</strong> section for an easy way to recode the numerical values into
+<a href="https://rdrr.io/r/base/factor.html" class="external-link">factors</a>.</p>
+    </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>Raw data used internally by <a href="https://CRAN.R-project.org/package=igoR" class="external-link"><span class="pkg">igoR</span></a>.</p>
@@ -120,28 +122,115 @@ datasets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"igo_year_format3"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="va">igo_year_format3</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 19,335 × 235</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ioname orgname                year afghanistan albania algeria andorra angola</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>984          -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>     -<span style="color: #BB0000;">9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>985          -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>      -<span style="color: #BB0000;">9</span>     -<span style="color: #BB0000;">9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>986           0       0       0      <span style="color: #BB0000;">NA</span>      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>987           0       0       0      <span style="color: #BB0000;">NA</span>      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>988           0       0       0      <span style="color: #BB0000;">NA</span>      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>989           0       0       0      <span style="color: #BB0000;">NA</span>      1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>990           0       0       0      <span style="color: #BB0000;">NA</span>      1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>991           0       0       0      <span style="color: #BB0000;">NA</span>      1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>992           0       0       0      <span style="color: #BB0000;">NA</span>      1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ACPEU  ACP/EU Joint Assembly  <span style="text-decoration: underline;">1</span>993           0       0       0       0      1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19,325 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 227 more variables: antiguabarbuda &lt;dbl&gt;, argentina &lt;dbl&gt;, armenia &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   australia &lt;dbl&gt;, austria &lt;dbl&gt;, austriahungary &lt;dbl&gt;, azerbaijan &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   baden &lt;dbl&gt;, bahamas &lt;dbl&gt;, bahrain &lt;dbl&gt;, bangladesh &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   barbados &lt;dbl&gt;, bavariaelect &lt;dbl&gt;, belarus &lt;dbl&gt;, belgium &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   belize &lt;dbl&gt;, benin &lt;dbl&gt;, bhutan &lt;dbl&gt;, bolivia &lt;dbl&gt;, bosnia &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   botswana &lt;dbl&gt;, brazil &lt;dbl&gt;, brunei &lt;dbl&gt;, bulgaria &lt;dbl&gt;, …</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"igo_year_format3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Show a glimpse</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'dplyr'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:stats':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:base':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">angola</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACP…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/EU …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Recode numerical to factors with a small function</span></span></span>
+<span class="r-in"><span><span class="va">recode_category</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"No Membership"</span>,</span></span>
+<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">~</span> <span class="st">"Full Membership"</span>, <span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">~</span> <span class="st">"Associate Membership"</span>,</span></span>
+<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span> <span class="op">~</span> <span class="st">"Observer"</span>, <span class="va">x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">9</span> <span class="op">~</span> <span class="st">"Missing Data"</span>,</span></span>
+<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="op">~</span> <span class="st">"IGO Not In Existence"</span>, <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">r</span>,</span></span>
+<span class="r-in"><span>    levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="st">"No Membership"</span>, <span class="st">"Full Membership"</span>, <span class="st">"Associate Membership"</span>, <span class="st">"Observer"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"Missing Data"</span>, <span class="st">"IGO Not In Existence"</span>, <span class="cn">NA</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    exclude <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Take a sample</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">belgium</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ antiguabarbuda <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ argentina      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ armenia        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ australia      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ austria        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ austriahungary <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ azerbaijan     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ baden          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahamas        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahrain        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bangladesh     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ barbados       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bavariaelect   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ belarus        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ belgium        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Recode</span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op">&lt;-</span> <span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span><span class="op">)</span>, <span class="va">recode_category</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola         <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ antiguabarbuda <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ argentina      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ armenia        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ australia      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ austria        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ austriahungary <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ azerbaijan     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ baden          <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahamas        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahrain        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bangladesh     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ barbados       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ bavariaelect   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ belarus        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ belgium        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
