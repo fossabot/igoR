@@ -98,8 +98,8 @@ Project (IGO Data Stata Files).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Possible value of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <strong>Examples</strong> section for an easy way to recode the numerical values into
-<a href="https://rdrr.io/r/base/factor.html" class="external-link">factors</a>.</p>
+    <p>Possible value of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <code><a href="igo_recode.html">igo_recode_igoyear()</a></code> section for an easy way to recode the numerical
+values into <a href="https://rdrr.io/r/base/factor.html" class="external-link">factors</a>.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
@@ -116,121 +116,228 @@ datasets. <em>Journal of Peace Research, 57</em>(3), 492–503.
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other datasets: 
+<code><a href="igo_recode.html">igo_recode_igoyear</a>()</code>,
 <code><a href="state_year_format3.html">state_year_format3</a></code>,
 <code><a href="states2016.html">states2016</a></code></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"igo_year_format3"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"state_year_format3"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Show a glimpse</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'dplyr'</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:stats':</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:base':</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">angola</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">state_year_format3</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "ccode"       "year"        "state"       "aaaid"       "aacb"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] "aalco"       "aaro"        "aata"        "aatpo"       "abeda"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "abepseac"    "acc"         "acct"        "acdt"        "aci"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "acml"        "acp"         "acpeu"       "acs"         "acso"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "acssrb"      "acu"         "acwl"        "afesd"       "afeximb"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] "afgec"       "afpu"        "afrand"      "afristat"    "afspc"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "afte"        "agc"         "agpundo"     "aic"         "aidc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] "aido"        "aioec"       "aipo"        "aitic"       "alo"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] "alsf"        "amco"        "amcow"       "amf"         "amipo"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "amptu"       "amsc"        "amu"         "anzus"       "aoad"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] "aocrs"       "aomr"        "aopu"        "ap"          "apcc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] "apec"        "apfic"       "apibd"       "apo"         "appa"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "apt"         "aptu"        "arc"         "arcal"       "aripo"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] "arpu"        "asatp"       "asblac"      "ascbc"       "ascrubber"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] "asean"       "asecna"      "asef"        "aspac"       "ato"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "atpc"        "au"          "avrdc"       "afdb"        "afropda"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "africarice"  "africare"    "amcc"        "andean"      "aralsea"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] "articc"      "asdb"        "baltbat"     "bc"          "bcsc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "benelux"     "biisef"      "bionet"      "bipm"        "bis"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] "bndp"        "bobp"        "bonn"        "borgip"      "bs"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [101] "bsec"        "caad"        "caarc"       "cab"         "cabi"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "cacb"        "caci"        "caec"        "caecc"       "caipa"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [111] "cames"       "camrsd"      "camsf"       "caricom"     "carifta"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [116] "carii"       "catc"        "cbfp"        "cbi"         "cbss"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [121] "ccnr"        "ccom"        "ccpa"        "ccomm"       "cdb"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [126] "ceao"        "cec"         "ceepn"       "cefta"       "cei"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [131] "celc"        "cemac"       "cento"       "cepgl"       "cern"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "cfatf"       "cfc"         "chstea"      "cica"        "cifc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [141] "cilss"       "cima"        "cis"         "cmaec"       "cmaoc"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [146] "cmea"        "cmhasg"      "coe"         "colombo"     "comesa"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [151] "confejes"    "coptac"      "cosave"      "cpab"        "cpsc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [156] "cpu"         "cslf"        "csto"        "ctcaf"       "cto"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [161] "cwgc"        "cxc"         "cfrn"        "comab"       "comsec"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [166] "corg"        "d8"          "dbgls"       "dlcoea"      "danube"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [171] "eac"         "eacm"        "eacso"       "eadb"        "eaec"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [176] "eapc"        "eapo"        "ebrd"        "ecb"         "ecca"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "eccas"       "eccb"        "eccd"        "eccm"        "eccpif"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [186] "eco"         "ecowas"      "ecpta"       "ecsc"        "eec"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [191] "efcc"        "efilwc"      "efta"        "eib"         "eip"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [196] "eipa"        "eldo"        "emb"         "embc"        "embl"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [201] "emi"         "emppo"       "epa"         "epfsc"       "epo"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [206] "epu"         "eria"        "esa"         "eso"         "esro"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [211] "etf"         "eu"          "eufmd"       "euramet"     "euratom"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [216] "eurocontrol" "eurofima"    "euromet"     "entente"     "fao"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [221] "fdiplac"     "fec"         "g15"         "g24"         "g3"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "gatt"        "gbact"       "gcc"         "gcrsnc"      "gef"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [231] "geo"         "ghsi"        "glacsec"     "goic"        "hcpil"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [236] "iabe"        "iabath"      "iacb"        "iaci"        "iacs"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [241] "iacss"       "iacw"        "iadb"        "iadefb"      "iaea"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [246] "iafc"        "iahc"        "iaias"       "iaic"        "iaigc"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [251] "iaii"        "ialong"      "iamlo"       "iaphy"       "iara"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [256] "iarhc"       "iaradio"     "iaruhr"      "ias"         "iasaj"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [261] "iatb"        "iatsj"       "iattc"       "iba"         "ibcs"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [266] "ibe"         "ibec"        "ibi"         "ibier"       "ibpmp"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "ibrd"        "icac"        "icai"        "icao"        "icamo"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [276] "icc"         "iccec"       "iccilmb"     "icco"        "iccrom"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [281] "iccs"        "iccslt"      "icdr"        "ices"        "icfam"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [286] "ichrb"       "icmmp"       "icnc"        "icnwaf"      "icprp"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [291] "icptu"       "icri"        "icrpbc"      "icse"        "icseaf"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [296] "icsg"        "ictm"        "icfo"        "ichemo"      "icivdo"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [301] "icomo"       "idc"         "iea"         "iec"         "ies"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [306] "iexb"        "ifad"        "ifc"         "ifca"        "igad"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [311] "igc"         "igcc"        "iho"         "iia"         "iicom"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [316] "iie"         "iif"         "iifeo"       "iiwee"       "ijo"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [321] "ilo"         "ilzsg"       "imbslav"     "imc"         "imf"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [326] "imi"         "imo"         "imso"        "incap"       "infofish"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [331] "infsmk"      "inpfc"       "inro"        "insg"        "intelsat"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [336] "interpol"    "ioathre"     "iocom"       "ioez"        "iolm"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [341] "iomig"       "iooc"        "iopcf"       "ioph"        "iorarc"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [346] "iocc"        "ipc"         "ipi"         "ipedi"       "ipentc"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [351] "iphyl"       "iprizec"     "irena"       "irlcs"       "iro"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [356] "irsg"        "iru"         "isa"         "isb"         "isdb"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [361] "ishrest"     "isrbc"       "isupt"       "isuc"        "itc"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [366] "itcc"        "itcle"       "itpa"        "itro"        "itto"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [371] "itu"         "itvrc"       "iuic"        "iupct"       "iupip"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [376] "iuplaw"      "iupnvp"      "iupr"        "ivwo"        "iwsg"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [381] "iwhale"      "iocean"      "jalaao"      "jinr"        "jnolcrh"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [386] "lacac"       "lacp"        "laeo"        "lafdo"       "lafta"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [391] "laia"        "laiec"       "latin"       "lcbc"        "lgida"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [396] "loas"        "lon"         "maocn"       "marri"       "mcpttc"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [401] "mcwcasm"     "mfo"         "miga"        "mru"         "mwn"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [406] "mercosur"    "montreal"    "nacap"       "nafo"        "nafta"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [411] "nam"         "nappo"       "nasco"       "nato"        "ncm"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [416] "ncrr"        "nctr"        "ndf"         "neafc"       "nerc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [421] "nib"         "npafc"       "npfsc"       "npi"         "nrc"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [426] "ntsc"        "nvc"         "nwhf"        "nordc"       "oapec"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [431] "oas"         "oau"         "ocam"        "ocas"        "occedca"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [436] "ocr"         "oecd"        "oecs"        "oeec"        "oic"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [441] "oiv"         "omdkr"       "omvg"        "opanal"      "opec"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [446] "osce"        "oslo"        "ospar"       "otif"        "pahc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [451] "paho"        "paigh"       "pap"         "papu"        "pc"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [456] "pca"         "pcb"         "pcsp"        "ped"         "piarc"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [461] "pibac"       "pices"       "pics"        "pif"         "pipd"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [466] "pmaesa"      "psnarco"     "ptasea"      "puasp"       "rascom"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [471] "rcaela"      "rcc"         "rcfc"        "recsa"       "rimmo"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [476] "rioppah"     "riogroup"    "radiou"      "repcom"      "saafa"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [481] "saarc"       "sacep"       "sacu"        "sadc"        "sadcc"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [486] "sami"        "sartc"       "sca"         "scaf"        "sch"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [491] "schengen"    "sco"         "seameo"      "seato"       "segib"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [496] "sela"        "sica"        "sieca"       "sittdec"     "spc"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [501] "srdo"        "swapu"       "swpd"        "sugu"        "tcrmg"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [506] "turksoy"     "uasc"        "ubec"        "udeac"       "uemoa"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [511] "uiucv"       "ukdwd"       "um"          "umac"        "umoa"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [516] "un"          "unesco"      "unido"       "unidroit"    "upu"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [521] "usp"         "valdivia"    "vasab"       "waec"        "wahc"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [526] "waho"        "wcdc"        "wco"         "weu"         "who"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [531] "wipo"        "wmo"         "wnf"         "wpact"       "wto"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [536] "wtouro"      "wassen"     </span>
+<span class="r-in"><span><span class="va">state_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ccode</span><span class="op">:</span><span class="va">afgec</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="fl">1990</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACP…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/EU …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ year        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 4,567</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ccode    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ state    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "usa", "usa", "usa", "usa", "usa", "usa", "usa", "usa", "usa"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaaid    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aacb     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aalco    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaro     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aata     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aatpo    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abeda    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abepseac <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acc      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acct     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acdt     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aci      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acml     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acp      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acpeu    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acs      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acso     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, -9, -9, -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acssrb   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acu      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acwl     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afesd    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afeximb  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -9, -9, -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afgec    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Recode numerical to factors with a small function</span></span></span>
-<span class="r-in"><span><span class="va">recode_category</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"No Membership"</span>,</span></span>
-<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">~</span> <span class="st">"Full Membership"</span>, <span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">~</span> <span class="st">"Associate Membership"</span>,</span></span>
-<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span> <span class="op">~</span> <span class="st">"Observer"</span>, <span class="va">x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">9</span> <span class="op">~</span> <span class="st">"Missing Data"</span>,</span></span>
-<span class="r-in"><span>    <span class="va">x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="op">~</span> <span class="st">"IGO Not In Existence"</span>, <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">r</span>,</span></span>
-<span class="r-in"><span>    levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      <span class="st">"No Membership"</span>, <span class="st">"Full Membership"</span>, <span class="st">"Associate Membership"</span>, <span class="st">"Observer"</span>,</span></span>
-<span class="r-in"><span>      <span class="st">"Missing Data"</span>, <span class="st">"IGO Not In Existence"</span>, <span class="cn">NA</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span>,</span></span>
-<span class="r-in"><span>    exclude <span class="op">=</span> <span class="cn">NULL</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Take a sample</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="co"># Recode numerical to factors: with a sample</span></span></span>
+<span class="r-in"><span><span class="va">sample_state_year</span> <span class="op">&lt;-</span> <span class="va">state_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">belgium</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ccode</span><span class="op">:</span><span class="va">afgec</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">1990</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ year           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ antiguabarbuda <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ argentina      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ armenia        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ australia      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ austria        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ austriahungary <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ azerbaijan     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ baden          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahamas        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahrain        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bangladesh     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ barbados       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bavariaelect   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ belarus        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, NA, NA, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ belgium        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="r-in"><span><span class="va">sample_state_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ccode    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2, 20, 31, 40, 41, 42, 51, 52, 53, 54, 55, 56, 57, 58, 60, 70…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ state    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "usa", "canada", "bahamas", "cuba", "haiti", "domrepublic", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaaid    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aacb     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aalco    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaro     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aata     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aatpo    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abeda    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abepseac <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acc      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acct     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acdt     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aci      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acml     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acp      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acpeu    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acs      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acso     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acssrb   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acu      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acwl     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afesd    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afeximb  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afgec    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Recode</span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op">&lt;-</span> <span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span><span class="op">)</span>, <span class="va">recode_category</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sample_state_year_recoded</span> <span class="op">&lt;-</span> <span class="va">sample_state_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">ccode</span><span class="op">:</span><span class="va">state</span><span class="op">)</span>, <span class="va">igo_recode_stateyear</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 19,335</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "ACPEU", "…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ orgname        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACP/EU Joint Assembly", "ACP/EU Joint Assembly", "ACP/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ year           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ afghanistan    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ albania        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ algeria        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ andorra        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ angola         <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ antiguabarbuda <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ argentina      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ armenia        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ australia      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ austria        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ austriahungary <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ azerbaijan     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ baden          <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahamas        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bahrain        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bangladesh     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, No Membership, No Membershi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ barbados       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ bavariaelect   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ belarus        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, NA, NA, NA, NA, NA, No Memb…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ belgium        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> Missing Data, Missing Data, Full Membership, Full Membe…</span>
+<span class="r-in"><span><span class="va">sample_state_year_recoded</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ccode    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2, 20, 31, 40, 41, 42, 51, 52, 53, 54, 55, 56, 57, 58, 60, 70…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1990, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ state    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "usa", "canada", "bahamas", "cuba", "haiti", "domrepublic", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaaid    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aacb     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aalco    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aaro     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aata     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aatpo    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abeda    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ abepseac <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acc      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acct     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, Full Membership, No Membership, No Membership,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acdt     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ aci      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acml     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acp      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, Full Membership, No Membership,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acpeu    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, Full Membership, No Membership,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acs      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acso     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acssrb   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acu      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ acwl     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afesd    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afeximb  <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> IGO Not In Existence, IGO Not In Existence, IGO Not In Existe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ afgec    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> No Membership, No Membership, No Membership, No Membership, N…</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
