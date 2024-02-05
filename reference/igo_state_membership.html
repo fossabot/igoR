@@ -8,17 +8,17 @@
   gtag('js', new Date());
 
   gtag('config', 'G-S61Y539QDX');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="igoR logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,48 +76,45 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>state</dt>
 <dd><p>Any valid name or code of a state as specified on
-<a href="states2016.html">states2016</a>. It could be also a vector of states</p></dd>
+<code><a href="states2016.html">states2016()</a></code>. It could be also an array of states.</p></dd>
 
 
 <dt>year</dt>
-<dd><p>Year to be assessed, an integer or an array of year.
-If <code>NULL</code> the latest year available
-of the state would be extracted.</p></dd>
+<dd><p>Year to be assessed, an integer or an array of year. If <code>NULL</code>
+the latest year available of the state would be extracted.</p></dd>
 
 
 <dt>status</dt>
-<dd><p>Character or vector with the membership status to be
-extracted. See Details
-on <a href="igo_year_format3.html">igo_year_format3</a>.</p></dd>
+<dd><p>Character or vector with the membership status to be extracted.
+See <strong>Details</strong> on <a href="igo_year_format3.html">igo_year_format3</a>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A dataframe.</p>
+<p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="igo_year_format3.html">igo_year_format3</a>, <code><a href="igo_search_states.html">igo_search_states()</a></code>,
-<a href="states2016.html">states2016</a>.</p></div>
+    <div class="dont-index"><p><a href="igo_year_format3.html">igo_year_format3</a>, <code><a href="igo_search_states.html">igo_search_states()</a></code>, <a href="states2016.html">states2016</a>.</p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Memberships on two different dates</span></span></span>
 <span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"Spain"</span>, year <span class="op">=</span> <span class="fl">1850</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   230      SPN    Spain spain 1850    SCH Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname value        category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   230      SPN    Spain spain 1850    SCH     1 Full Membership</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      orgname                longorgname political social</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Superior Council of Health Superior Council of Health         0      1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   economic</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1        0</span>
 <span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"Spain"</span>, year <span class="op">=</span> <span class="fl">1870</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   230      SPN    Spain spain 1870 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   230      SPN    Spain spain 1870    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   230      SPN    Spain spain 1870    SCH Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname value        category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   230      SPN    Spain spain 1870 ICCSLT     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   230      SPN    Spain spain 1870    ITU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   230      SPN    Spain spain 1870    SCH     1 Full Membership</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           orgname</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Intl Comm of Cape Spartel Light</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2              Intl Telecom Union</span>
@@ -131,25 +128,25 @@ on <a href="igo_year_format3.html">igo_year_format3</a>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2      0        1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3      1        0</span>
 <span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"Spain"</span>, year <span class="op">=</span> <span class="fl">1880</span><span class="op">:</span><span class="fl">1882</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ccode stateabb statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    230      SPN    Spain spain 1880   BIPM Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    230      SPN    Spain spain 1880 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    230      SPN    Spain spain 1880 IPentC Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    230      SPN    Spain spain 1880    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    230      SPN    Spain spain 1880    SCH Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    230      SPN    Spain spain 1880    UPU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    230      SPN    Spain spain 1881   BIPM Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    230      SPN    Spain spain 1881 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    230      SPN    Spain spain 1881 IPentC Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   230      SPN    Spain spain 1881    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   230      SPN    Spain spain 1881    SCH Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   230      SPN    Spain spain 1881    UPU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   230      SPN    Spain spain 1882   BIPM Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   230      SPN    Spain spain 1882 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   230      SPN    Spain spain 1882 IPentC Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16   230      SPN    Spain spain 1882    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17   230      SPN    Spain spain 1882    SCH Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18   230      SPN    Spain spain 1882    UPU Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ccode stateabb statenme state year ioname value        category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    230      SPN    Spain spain 1880   BIPM     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    230      SPN    Spain spain 1880 ICCSLT     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    230      SPN    Spain spain 1880 IPentC     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    230      SPN    Spain spain 1880    ITU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    230      SPN    Spain spain 1880    SCH     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    230      SPN    Spain spain 1880    UPU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    230      SPN    Spain spain 1881   BIPM     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    230      SPN    Spain spain 1881 ICCSLT     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    230      SPN    Spain spain 1881 IPentC     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   230      SPN    Spain spain 1881    ITU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11   230      SPN    Spain spain 1881    SCH     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   230      SPN    Spain spain 1881    UPU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   230      SPN    Spain spain 1882   BIPM     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   230      SPN    Spain spain 1882 ICCSLT     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   230      SPN    Spain spain 1882 IPentC     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16   230      SPN    Spain spain 1882    ITU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17   230      SPN    Spain spain 1882    SCH     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18   230      SPN    Spain spain 1882    UPU     1 Full Membership</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                       orgname</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  International Bureau of Weights &amp; Measures</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2             Intl Comm of Cape Spartel Light</span>
@@ -210,83 +207,77 @@ on <a href="igo_year_format3.html">igo_year_format3</a>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Last year</span></span></span>
 <span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"ZAN"</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme    state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   511      ZAN Zanzibar zanzibar 1964    CEC Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   511      ZAN Zanzibar zanzibar 1964    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   511      ZAN Zanzibar zanzibar 1964     UN Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   511      ZAN Zanzibar zanzibar 1964    UPU Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme    state year ioname value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   511      ZAN Zanzibar zanzibar 1964    CEC     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   511      ZAN Zanzibar zanzibar 1964    ITU     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   511      ZAN Zanzibar zanzibar 1964     UN     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   511      ZAN Zanzibar zanzibar 1964    UPU     1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use codes to get countries</span></span></span>
 <span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"2"</span>, year <span class="op">=</span> <span class="fl">1865</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb                 statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     2      USA United States of America   usa 1865 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Intl Comm of Cape Spartel Light</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb                 statenme state year ioname value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     2      USA United States of America   usa 1865 ICCSLT     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          category                         orgname</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Full Membership Intl Comm of Cape Spartel Light</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                     longorgname political</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 International Commission of the Cape Spartel Light in Tangier         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   social economic</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1      0        1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract different status</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"kosovo"</span>,</span></span>
-<span class="r-in"><span>  status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="st">"Associate Membership"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Observer"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Full Membership"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme  state year ioname             category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   347      KOS   Kosovo kosovo 2014   ACCT Associate Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   347      KOS   Kosovo kosovo 2014   EBRD      Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   347      KOS   Kosovo kosovo 2014   IBRD      Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   347      KOS   Kosovo kosovo 2014    IFC      Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   347      KOS   Kosovo kosovo 2014    IMF      Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   347      KOS   Kosovo kosovo 2014   MIGA      Full Membership</span>
+<span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"kosovo"</span>, status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"Associate Membership"</span>, <span class="st">"Observer"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Full Membership"</span></span></span>
+<span class="r-in"><span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme  state year ioname value             category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   347      KOS   Kosovo kosovo 2014   EBRD     1      Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   347      KOS   Kosovo kosovo 2014   IBRD     1      Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   347      KOS   Kosovo kosovo 2014    IFC     1      Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   347      KOS   Kosovo kosovo 2014    IMF     1      Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   347      KOS   Kosovo kosovo 2014   MIGA     1      Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   347      KOS   Kosovo kosovo 2014   ACCT     2 Associate Membership</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                          orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             Francophone Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 European Bank for Reconstruction &amp; Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                     World Bank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      Int'l Finance Corporation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             Intl Monetary Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Multilateral Investment Guarantee Agency</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 European Bank for Reconstruction &amp; Development</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                     World Bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      Int'l Finance Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             Intl Monetary Fund</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       Multilateral Investment Guarantee Agency</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             Francophone Agency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                          longorgname political</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                   Agence de La Francophonie (ACCT)         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            European Bank for Reconstruction and Development (EBRD)         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 International Bank for Reconstruction and Development (World Bank)         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                            International Finance Corporation (IFC)         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                        International Monetary Fund         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    Multilateral Investment Guarantee Agency (MIGA)         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            European Bank for Reconstruction and Development (EBRD)         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 International Bank for Reconstruction and Development (World Bank)         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            International Finance Corporation (IFC)         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                        International Monetary Fund         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    Multilateral Investment Guarantee Agency (MIGA)         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                   Agence de La Francophonie (ACCT)         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   social economic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      1        0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      0        1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2      0        1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3      0        1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4      0        1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5      0        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      1        0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Vectorized</span></span></span>
-<span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"usa"</span>, <span class="st">"spain"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  year <span class="op">=</span> <span class="fl">1870</span><span class="op">:</span><span class="fl">1871</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb                 statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     2      USA United States of America   usa 1870 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     2      USA United States of America   usa 1871 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   230      SPN                    Spain spain 1870 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   230      SPN                    Spain spain 1870    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   230      SPN                    Spain spain 1870    SCH Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   230      SPN                    Spain spain 1871 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   230      SPN                    Spain spain 1871    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   230      SPN                    Spain spain 1871    SCH Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Intl Comm of Cape Spartel Light</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Intl Comm of Cape Spartel Light</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Intl Comm of Cape Spartel Light</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              Intl Telecom Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Superior Council of Health</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Intl Comm of Cape Spartel Light</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              Intl Telecom Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Superior Council of Health</span>
+<span class="r-in"><span><span class="fu">igo_state_membership</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"usa"</span>, <span class="st">"spain"</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">1870</span><span class="op">:</span><span class="fl">1871</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb                 statenme state year ioname value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     2      USA United States of America   usa 1870 ICCSLT     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     2      USA United States of America   usa 1871 ICCSLT     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   230      SPN                    Spain spain 1870 ICCSLT     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   230      SPN                    Spain spain 1870    ITU     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   230      SPN                    Spain spain 1870    SCH     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   230      SPN                    Spain spain 1871 ICCSLT     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   230      SPN                    Spain spain 1871    ITU     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   230      SPN                    Spain spain 1871    SCH     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          category                         orgname</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Full Membership Intl Comm of Cape Spartel Light</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Full Membership Intl Comm of Cape Spartel Light</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Full Membership Intl Comm of Cape Spartel Light</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Full Membership              Intl Telecom Union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Full Membership      Superior Council of Health</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Full Membership Intl Comm of Cape Spartel Light</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 Full Membership              Intl Telecom Union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 Full Membership      Superior Council of Health</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                     longorgname political</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 International Commission of the Cape Spartel Light in Tangier         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 International Commission of the Cape Spartel Light in Tangier         0</span>
@@ -310,19 +301,16 @@ on <a href="igo_year_format3.html">igo_year_format3</a>.</p></dd>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"countrycode"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/countrycode/" class="external-link">countrycode</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">IT</span> <span class="op">&lt;-</span> <span class="fu">igo_state_membership</span><span class="op">(</span><span class="st">"Italy"</span>, year <span class="op">=</span> <span class="fl">1880</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">IT</span><span class="op">$</span><span class="va">iso3c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">IT</span><span class="op">$</span><span class="va">ccode</span>,</span></span>
-<span class="r-in"><span>    origin <span class="op">=</span> <span class="st">"cown"</span>,</span></span>
-<span class="r-in"><span>    destination <span class="op">=</span> <span class="st">"iso3c"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">IT</span><span class="op">$</span><span class="va">iso3c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">IT</span><span class="op">$</span><span class="va">ccode</span>, origin <span class="op">=</span> <span class="st">"cown"</span>, destination <span class="op">=</span> <span class="st">"iso3c"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">IT</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname        category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   325      ITA    Italy italy 1880   BIPM Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   325      ITA    Italy italy 1880   ECCD Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   325      ITA    Italy italy 1880 ICCSLT Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   325      ITA    Italy italy 1880 IPentC Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   325      ITA    Italy italy 1880    ITU Full Membership</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   325      ITA    Italy italy 1880    SCH Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode stateabb statenme state year ioname value        category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   325      ITA    Italy italy 1880   BIPM     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   325      ITA    Italy italy 1880   ECCD     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   325      ITA    Italy italy 1880 ICCSLT     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   325      ITA    Italy italy 1880 IPentC     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   325      ITA    Italy italy 1880    ITU     1 Full Membership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   325      ITA    Italy italy 1880    SCH     1 Full Membership</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                      orgname</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 International Bureau of Weights &amp; Measures</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2            Euro Comm for Control of Danube</span>

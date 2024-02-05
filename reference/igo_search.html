@@ -8,17 +8,17 @@
   gtag('js', new Date());
 
   gtag('config', 'G-S61Y539QDX');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="igoR logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +75,8 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>pattern</dt>
-<dd><p>regex pattern. If <code>NULL</code> the function returns a dataset
-with all the IGOs on <a href="igo_year_format3.html">igo_year_format3</a>. Integer values are
+<dd><p><a href="https://rdrr.io/r/base/regex.html" class="external-link">regex</a> pattern. If <code>NULL</code> the function returns
+a dataset with all the IGOs on <a href="igo_year_format3.html">igo_year_format3</a>. Integer values are
 accepted.</p></dd>
 
 
@@ -88,14 +88,14 @@ accepted.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A dataframe.</p>
+<p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The information of each IGO is retrieved based on the last year
-available on <a href="igo_year_format3.html">igo_year_format3</a>.</p>
-<p>An additional column <code>label</code> is provided. This column is a clean
-version of <code>longorgname</code></p>
+    <p>The information of each IGO is retrieved based on the last year available on
+<a href="igo_year_format3.html">igo_year_format3</a>.</p>
+<p>An additional column <code>label</code> is provided. This column is a clean version of
+<code>longorgname</code></p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -105,22 +105,10 @@ version of <code>longorgname</code></p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># All values</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">all</span> <span class="op">&lt;-</span> <span class="fu">igo_search</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">all</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 534</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">all</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "ionum"                            "ioname"                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "orgname"                          "longorgname"                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "label"                            "sdate"                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "deaddate"                         "dead"                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "integrated"                       "replaced"                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "igocode"                          "version"                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "accuracyofpre1965membershipdates" "sourcesandnotes"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "imputed"                          "political"                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "social"                           "economic"                        </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="va">all</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">all</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 534 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname      longorgname label sdate deaddate  dead integrated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -140,541 +128,89 @@ version of <code>longorgname</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   imputed &lt;dbl&gt;, political &lt;dbl&gt;, social &lt;dbl&gt;, economic &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search by pattern</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ionum      ioname                                               orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    680    ABEPSEAC      Assoc. B/t EEC and States of East Afr. Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     10       ACPEU                                 ACP/EU Joint Assembly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    150        APPA                    African Petroleum Producers Assoc.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    540        ASEF                                Asia-Europe Foundation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   1020       CEEPN          Central &amp; Eastern Eur. Privatization Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   1070       CEFTA                                    Central Europe FTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   1080         CEI                           Central European Initiative</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   1720        CERN                     European Org for Nuclear Research</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   1390         COE                                     Council of Europe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  1300    CONFEJES          Conference des Ministres jeunesse...Francais</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  1095        CPAB                         Central PanAm Bureau Eugenics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  1545        EAEC                           Eurasian Economic Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  1550        EAPC                     Euro-Atlantic Partnership Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  1540        EAPO                                  Eurasian Patent Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  1570        EBRD        European Bank for Reconstruction &amp; Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  1580         ECB                                 European Central Bank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  1610        ECCD                       Euro Comm for Control of Danube</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  1620      ECCPIF                 Euro Company Chem Process Irrad Fuels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  1640       ECPTA                        Euro Conf Postal Telecom Admin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  1585        ECSC                       European Coal &amp; Steel Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  1653         EEC                           European Economic Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  1645        EFCC                                Euro Food Code Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  1660      EFILWC Eur. Foundation for Impr. of Living &amp; Work Conditions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  1670        EFTA                                  Euro Free Trade Assn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  1690         EIB                                  Euro Investment Bank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  1675         EIP                           European Institute of Peace</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  1680        EIPA                     Europ. Institute of Public Admin.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  1810        ELDO                   Euro Space Vehicle Launcher Dev Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  1700        EMBC                 European Molecular Biology Conference</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  1710        EMBL                              Eur. Molecular Biol. Lab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  1715         EMI                           European Monetary Institute</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  1560       EMPPO                          Euro &amp; Med Plant Protect Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  1770         EPA                              Euro Productivity Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  1760       EPFSC                 Euro. Postal Financial Services Comm.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  1740         EPO                          European Patent Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  1750         EPU                               European Payments Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  1790         ESA                                 European Space Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  1780         ESO                         European Southern Observatory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  1800        ESRO                               Euro Space Research Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  1820         ETF                          European Training Foundation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  1830          EU                                        European Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  1600       EUFMD              Euro Comm for Control Foot-Mouth Disease</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  1563     EURAMET  European Association of National Metrology Institute</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  1565     EURATOM                         European Atomic Energy Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  1730 EUROCONTROL                             Euro Org Safety Air Navig</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  1630    EUROFIMA           Euro Comp for Finance Railway Rolling Stock</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  1590     EUROMET       European Collaboration on Measurement Standards</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  2250       IOMig                                Intl Org for Migration</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  3800       OAPEC                 Org. Arab Petroleum Export. Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  3762        OEEC                        Org for European Economic Coop</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  3840        OPEC                  Org of Petroleum Exporting Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  3770        OSCE                      Org. Security Cooperation Europe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  4000         PED                          Pole European de Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  1650         WCO                                     World Customs Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  4510         WEU                                Western European Union</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 55 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   680 ABEPSEAC Assoc. B/t EEC and States of East Afr. Community</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>    10 ACPEU    ACP/EU Joint Assembly                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   150 APPA     African Petroleum Producers Assoc.              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   540 ASEF     Asia-Europe Foundation                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">1</span>020 CEEPN    Central &amp; Eastern Eur. Privatization Network    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">1</span>070 CEFTA    Central Europe FTA                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">1</span>080 CEI      Central European Initiative                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">1</span>720 CERN     European Org for Nuclear Research               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">1</span>390 COE      Council of Europe                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">1</span>300 CONFEJES Conference des Ministres jeunesse...Francais    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname        orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1830     EU European Union</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">1</span>830 EU     European Union</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With integers</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ionum   ioname                                               orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    710    AATPO                  Assoc. of Afr. Trade Promotion Orgs.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     10    ACPEU                                 ACP/EU Joint Assembly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    100    AFGEC                     Afr. Fund Guarantee &amp; Econ. Coop.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    410     AFTE                   Arab Federation for Technical Educ.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    110      AGC                             African Groundnut Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    510     AOMR                       Arab Org. for Mineral Resources</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    610      ARC                               Asian Reinsurance Corp.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    210      ATO                                   African Timber Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    310     AmCC                               Amazonian Coop. Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   810      BIS                    Bank for International Settlements</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  3810     BSEC                            Black Sea Economic Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  1030    CAECC                Central Asian Cooperation Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  1310   CAMRSD       Conf. African Ministers for Sustain Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  1000    CAMSF                          Cent. Am Monetary Stab. Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  1010    CARII      Central American Research Institute for Industry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  1040      CBI                      Centrl Bureau: Intl Map of World</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  1050     CCNR    Central Commission for the Navigation of the Rhine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  1060     CCOM                    Cent. Compensation Off. of Maghreb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  1210      CEC                       Commonwealth Economic Committee</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  1020    CEEPN          Central &amp; Eastern Eur. Privatization Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  1070    CEFTA                                    Central Europe FTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  1080      CEI                           Central European Initiative</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  1100    CENTO                           Central Treaty Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  1510    CEPGL              Economic Community of Great Lakes States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   910    CFATF                      Caribbean Fin. Action Task Force</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  1410   CMHASG         Council of Min. of Health of Arab Gulf States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  1095     CPAB                         Central PanAm Bureau Eugenics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  1610     ECCD                       Euro Comm for Control of Danube</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  1810     ELDO                   Euro Space Vehicle Launcher Dev Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  1710     EMBL                              Eur. Molecular Biol. Lab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  1910      G15                                           Group of 15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  2010    HCPIL                        Hague Conf on Private Intl Law</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  2110     IACI                            Inter-Am Children's Instit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  2100     IARA                        Inter Allied Reparation Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  2105    IARHC                      Inter Allied Rhineland High Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  2210    IATTC                           Inter-Am Tropical Tuna Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  2410      IBA                                  Int'l Bauxite Assoc.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  2610   ICCSLT                       Intl Comm of Cape Spartel Light</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  2510   ICivDO                              Int'l Civil Defence Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  2710      IEA                                    Intl Energy Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  2810      IIF                          Intl Instit of Refrigeration</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  1110   INFSMK                                             InfoSAMAK</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  2910     INSG                              Int'l Nickel Study Group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  3010    IPhyL                                Intl Physiological Lab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  3100      ISA                                Int'l Seabed Authority</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  3310  ISHREST     Inter-State School for Hydraulic &amp; Rural Engin...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  3110    ISUPT                     Intl Sec for Unification Pharmaco</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  2310    ITVRC                                Intgvt TV &amp; Radio Corp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  3210   IUPLAW          Intl Union for Protection of Lit &amp; Art Works</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  3410     LAEO                            Latin American Energy Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  3510  MCWCASM Minist Conf of West &amp; Cent African States on Maritime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  3610     NCTR                       Nordic Council for Tax Research</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  3710    NPFSC                           North Pacific Fur Seal Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  1090     OTIF             Central Office for Intl Railway Transport</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  3910       PC                                      Paris Commission</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  4010   PMAESA            Port Management Assoc. of E. and S. Africa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  4100 RIOgroup                                             Rio Group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  4110     SCAf                             Scientific Council in SSA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  4210    SEATO                    Southeast Asia Treaty Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  4410   UNESCO              UN Education, Scientific, &amp; Cultural Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  4450    VASAB                 Vision &amp; Strategies Around Baltic Sea</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  4510      WEU                                Western European Union</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 62 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname orgname                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   710 AATPO  Assoc. of Afr. Trade Promotion Orgs.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>    10 ACPEU  ACP/EU Joint Assembly               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   100 AFGEC  Afr. Fund Guarantee &amp; Econ. Coop.   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   410 AFTE   Arab Federation for Technical Educ. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   110 AGC    African Groundnut Council           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   510 AOMR   Arab Org. for Mineral Resources     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   610 ARC    Asian Reinsurance Corp.             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   210 ATO    African Timber Org.                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   310 AmCC   Amazonian Coop. Council             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   810 BIS    Bank for International Settlements  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 52 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname               orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    10  ACPEU ACP/EU Joint Assembly</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    10 ACPEU  ACP/EU Joint Assembly</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Several patterns (regex style)</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"NAFTA|UN|EU"</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ionum      ioname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     680    ABEPSEAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     400         ACC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      10       ACPEU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     570         ACU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     420       AFESD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     100       AFGEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     160        AFPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      90      AFRAND</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     725       AFSPC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    110         AGC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    430     AGPUNDO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12    590        AIDC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    730       AIOEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14    125       AMCOW</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15    490         AMF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    250       AMPTU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     40        AMSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18    470         AMU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19    360       ANZUS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20    640        AOPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    550        APCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   2060       APFIC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23    150        APPA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24    670         APT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25    155        APTU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26    520        ARPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27    740   ASCRubber</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28    540        ASEF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29    560       ASPAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30    770        ATPC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31   3761          AU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32    310        AmCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33    330      Andean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34   2770     AralSea</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35    530      ArticC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36    780          BC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37    870        BCSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38    840     BENELUX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39   3810        BSEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40   1180       CAARC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41   1030       CAECC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42     30       CAMES</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43   1000       CAMSF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44    880     CARICOM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45   1200        CATC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46   1420        CBSS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47   4485        CEAO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48   1020       CEEPN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49   1070       CEFTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50   1080         CEI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51   1260       CEMAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52   1510       CEPGL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53   1720        CERN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54   1160         CFC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55   1400       CMAEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56   1370        CMEA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57   1410      CMHASG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58   1390         COE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59   1380     COLOMBO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60   1300    CONFEJES</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61   1340      COPTAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62   1095        CPAB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63   1270        CPSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64    920         CPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65   1250         CTO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66    900         CXC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67   4120         EAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68   1545        EAEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69   1550        EAPC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70   1540        EAPO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71   1570        EBRD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72   1580         ECB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73   1500       ECCAS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74   1610        ECCD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75   1620      ECCPIF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76   1520      ECOWAS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77   1640       ECPTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78   1585        ECSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79   1653         EEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80   1645        EFCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81   1660      EFILWC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82   1670        EFTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83   1690         EIB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84   1675         EIP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85   1680        EIPA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86   1810        ELDO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87   1700        EMBC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88   1710        EMBL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89   1715         EMI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90   1560       EMPPO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91   1770         EPA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92   1760       EPFSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93   1740         EPO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94   1750         EPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95   1790         ESA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96   1780         ESO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97   1800        ESRO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98   1820         ETF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99   1830          EU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100  1600       EUFMD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101  1563     EURAMET</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102  1565     EURATOM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103  1730 EUROCONTROL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104  1630    EUROFIMA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105  1590     EUROMET</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106  1430     Entente</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107  1860     FDIPLAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108  1990         GCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109  1980      GCRSNC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110  1900         GEF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111  1920     GLACSEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112  2340       IATSJ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113  2210       IATTC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114  2280       ICCEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115  2690        ICES</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116  2650       ICPTU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117  2260      ICRPBC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118  2760        IFAD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119  3260         IGC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120  2880         IMF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121  3170    INTELSAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122  2250       IOMig</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123  2960        IOOC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124  2950       IOPCF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125  3000         IPC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126  3070         IRU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127  3110       ISUPT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128  3130        ISuC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129  3180         ITC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130  3160         ITU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131  2315        IUIC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132  3220       IUPCT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133  3200       IUPIP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134  3210      IUPLAW</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135  4360      IUPNVP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136  3230        IUPR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137  3400       LAIEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138  3440       LATIN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139  3520      MCPTTC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140  3480         MRU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141  3530    Montreal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142  3670       NAFTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143  3620         NCM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144  3600        NCRR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145  3610        NCTR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146  3630         NDF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147  3640        NERC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148  3660        NTSC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149  3665        NWHF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150  3590       NordC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151  3800       OAPEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152  3900         OAS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153  3760         OAU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154   260        OCAM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155  3762        OEEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156  3840        OPEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157  3770        OSCE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158  3905        PAPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159  4000         PED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160  4020       PUASP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161  4050      RASCOM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162  4080      RCAELA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163  4075         RCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164  4060        RCFC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165  4040      RadioU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166  4270       SAAFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167  4240        SACU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 168  4250        SADC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 169  4230       SARTC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 170  4110        SCAf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 171  4300         SCH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 172  4150       SWAPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 173  4290        SugU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 174  4380        UASC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 175  4370        UBEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 176   940       UDEAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 177  4340       UEMOA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 178  4350       UIUCV</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 179  4390       UKDWD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 180  4375          UM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 181  4365        UMAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 182  4503        UMOA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 183  4400          UN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 184  4410      UNESCO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 185  4420       UNIDO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 186  2790    UNIDROIT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 187  4430         UPU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 188  4440         USP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 189  1940    VALDIVIA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 190  4450       VASAB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 191  4490        WAEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 192  4500        WAHC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 193  4540        WCDC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 194  1650         WCO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 195  4510         WEU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 196  4520         WNF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                             orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  Assoc. B/t EEC and States of East Afr. Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                          Arab Cooperation Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                             ACP/EU Joint Assembly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                              Asian Clearing Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         Arab Fund for Social/Economic Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 Afr. Fund Guarantee &amp; Econ. Coop.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                              African Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                         Afr. Foundation for R &amp; D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         Association of Financial Supervisors of Pacific Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                        African Groundnut Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                 Arab Gulf Prog. for UN Dev. Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                Asian Industrial Develop. Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                  Assoc. Iron Ore Expt. Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                              African Ministers' Council on Water</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                               Arab Monetary Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                          Afro-Malagasy Postal and Telecomm Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                    African/Malgasy Sugar Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                               Arab Maghreb Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                      Australia-NewZealand-US Treaty Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                       Asian-Oceanic Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                      Asian/Pacific Coconut Comm.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                      Asia Pacific Fisheries Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                               African Petroleum Producers Assoc.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                      Asian-Pacific Telecommunity</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                 African Postal and Telecom Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                Arab Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                           Association of Rubber Producing States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                           Asia-Europe Foundation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                           Asia &amp; Pacific Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                   Assoc. Tin Producing Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                    African Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                          Amazonian Coop. Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                                 Andean Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                   Int'l Fund for Saving Aral Sea</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                   Arctic Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                   Baltic Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                             British Commonwealth Scientific Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                Benelux Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                       Black Sea Economic Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                       Commonwealth Advis. Aero. Research Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                           Central Asian Cooperation Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                           Afr. &amp; Malagasy Council for Higher Ed.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                     Cent. Am Monetary Stab. Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                              Caribbean Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                               Commonwealth Air Transport Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                     Council of Baltic Sea States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                  West African Economic Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                     Central &amp; Eastern Eur. Privatization Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                               Central Europe FTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                      Central European Initiative</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                        Central African Economic &amp; Monetary Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                         Economic Community of Great Lakes States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                European Org for Nuclear Research</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54                                      Common Fund for Commodities</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                Council of Min. Asian Econ. Coop.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                  Council for Mutual Economic Aid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                    Council of Min. of Health of Arab Gulf States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                Council of Europe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                             Council for Tech Coop in S &amp; SE Asia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                     Conference des Ministres jeunesse...Francais</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61           Conf. of Posts &amp; Telecommunications  of Central Africa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                    Central PanAm Bureau Eugenics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                Comm Portugese Speaking Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                           Caribbean Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                       Commonwealth Telecom Board</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                     Caribb. Examinations Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                           East African Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                      Eurasian Economic Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                Euro-Atlantic Partnership Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                             Eurasian Patent Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                   European Bank for Reconstruction &amp; Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                            European Central Bank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                     Economic Community of Central African States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                  Euro Comm for Control of Danube</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                            Euro Company Chem Process Irrad Fuels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                        Economic Community of West African States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                   Euro Conf Postal Telecom Admin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78                                  European Coal &amp; Steel Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                      European Economic Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                           Euro Food Code Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81            Eur. Foundation for Impr. of Living &amp; Work Conditions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                             Euro Free Trade Assn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                             Euro Investment Bank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                      European Institute of Peace</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85                                Europ. Institute of Public Admin.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86                              Euro Space Vehicle Launcher Dev Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87                            European Molecular Biology Conference</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                         Eur. Molecular Biol. Lab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                      European Monetary Institute</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                     Euro &amp; Med Plant Protect Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                         Euro Productivity Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92                            Euro. Postal Financial Services Comm.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                     European Patent Organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                          European Payments Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                            European Space Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                    European Southern Observatory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97                                          Euro Space Research Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98                                     European Training Foundation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99                                                   European Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100                        Euro Comm for Control Foot-Mouth Disease</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101            European Association of National Metrology Institute</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                   European Atomic Energy Agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                       Euro Org Safety Air Navig</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104                     Euro Comp for Finance Railway Rolling Stock</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105                 European Collaboration on Measurement Standards</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                                 Entente Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107                    Fund 4 Devel. of Indigen Peoples of LA/Carib</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                        Gulf Cooperation Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109                  Guidance Comm. for Road Safety in Nordic Cntry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110                                            Global Environ. Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111                      Group of L/A &amp; Carib. Sugar Exp. Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112                               Intl Arbitration Trib at San Jose</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113                                     Inter-Am Tropical Tuna Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114                         Intgvt Council of Copper Exp. Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115                             Intl Council for Exploration of Sea</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116                            Intl Conf Promoting Tech Unification</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117                    Intergov. Committee of the River Plate Basin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118                          Int Fund for Agriculture &amp; Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119                                             Intl Grains Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120                                              Intl Monetary Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121                                  Int'l Telecomm. Satellite Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122                                          Intl Org for Migration</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123                                          Intl Olive Oil Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124                              Int'l Oil Pollution Compens. Funds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125                                          Int'l Pepper Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126                                               Intl Relief Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127                               Intl Sec for Unification Pharmaco</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128                                              Intl Sugar Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129                                                Intl Tin Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130                                              Intl Telecom Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131                     Intergovernmental University of Cooperation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132                       Intl Union Publication of Customs Tariffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133 Intl Union for Protection of Industrial Prop (Paris Convention)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134                    Intl Union for Protection of Lit &amp; Art Works</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135                 Union for Protection of New Varieties of Plants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136                                             Intl Union of Pruth</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137           Latin American Institute of Educational Communication</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138                                                     Latin Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139                 Multi-Country Posts &amp; Telecomm. Training Center</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140                                                Mano River Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141      Multilat. Fund for the Implement. of the Montreal Protocol</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142                                              North American FTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143                                     Nordic Council of Ministers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144                                 Nord. Council for Reindeer Res.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145                                 Nordic Council for Tax Research</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146                                         Nordic Development Fund</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147                                        Nordic Econ Res. Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148                               Nordic Telcomm. Satellite Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149                                Nordic World Heritage Foundation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150                                                  Nordic Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151                           Org. Arab Petroleum Export. Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152                                   Pan-Am Union/Org of Am States</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153                                           Org for African Unity</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154                               Common Afro-Malagasy Economic Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155                                  Org for European Economic Coop</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156                            Org of Petroleum Exporting Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157                                Org. Security Cooperation Europe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158                                        Pan African Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159                                    Pole European de Development</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160                                 Postal Union of Am, Spain, Port</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161                                  Reg. Afr. Satellite Comm. Org.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162               Reg. Council for Adult Educ. &amp; Literacy in Africa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163                                    Regional Cooperation Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164                           Reg Commonwealth in the Field of Comm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165                                            Radiotelegraph Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166                                Special Arab Aid Fund for Africa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167                                             Southern African CU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 168                                 Southern African Dev. Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 169                          South African Regional Tourism Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 170                                       Scientific Council in SSA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 171                                      Superior Council of Health</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 172                                  South &amp; West Asia Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 173                                                     Sugar Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 174                                        United Arab Shipping Co.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 175                             Union of Banana Exporting Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 176                        Central African Customs &amp; Economic Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 177                          West African Economic &amp; Monetary Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 178                          Union for Intl Use of Carriages &amp; Vans</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 179                                      UK Dominion Wool Disposals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 180                                     Union for the Mediterranean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 181                                  Central African Monetary Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 182                                     West African Monetary Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 183                                                  United Nations</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 184                        UN Education, Scientific, &amp; Cultural Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 185                                   UN Industrial Development Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 186                      Intl Instit for Unification of Private Law</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 187                                          Universal Postal Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 188                                          Univ. of South Pacific</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 189                           Group of S. Hemisp. Countries on Env.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 190                           Vision &amp; Strategies Around Baltic Sea</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 191                                  West Afr. Examinations Council</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 192                                   West African Health Community</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 193                           Working Community of Danube Countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 194                                               World Customs Org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 195                                          Western European Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 196                                                West Nordic Fund</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"NAFTA|UN|EU"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 196 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   680 ABEPSEAC Assoc. B/t EEC and States of East Afr. Community         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   400 ACC      Arab Cooperation Council                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>    10 ACPEU    ACP/EU Joint Assembly                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   570 ACU      Asian Clearing Union                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   420 AFESD    Arab Fund for Social/Economic Development                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   100 AFGEC    Afr. Fund Guarantee &amp; Econ. Coop.                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   160 AFPU     African Postal Union                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>    90 AFRAND   Afr. Foundation for R &amp; D                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   725 AFSPC    Association of Financial Supervisors of Pacific Countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   110 AGC      African Groundnut Council                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 186 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Several patterns Exact (regex style)</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"^NAFTA$|^UN$|^EU$"</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname            orgname</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1830     EU     European Union</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  3670  NAFTA North American FTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  4400     UN     United Nations</span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"^NAFTA$|^UN$|^EU$"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">1</span>830 EU     European Union    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">3</span>670 NAFTA  North American FTA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">4</span>400 UN     United Nations    </span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

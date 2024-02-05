@@ -34,8 +34,8 @@
   gtag('config', 'G-S61Y539QDX');
 </script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet">
-<!-- gitdevr tweaks --><link href="BS5/gitdevr.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<!-- gitdevr tweaks --><link href="BS5/gitdevr.min.css" rel="stylesheet">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -44,10 +44,10 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">
-      <img src="apple-touch-icon-180x180.png" alt="igoR logo" height="34" class="d-inline-block me-1">
+      <img src="favicon-32x32.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <code>igoR</code> is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
+<p>The goal of <strong>igoR</strong> is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
 <p>The dataset (V3) includes information of <strong>534</strong> IGO from 1816 to 2014, as well as membership information.</p>
 <p><strong>Source</strong>: <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (v3)</a>.</p>
 <p>Documentation and vignettes on <a href="https://dieghernan.github.io/igoR/" class="uri">https://dieghernan.github.io/igoR/</a></p>
@@ -108,14 +108,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install <code>igoR</code> from <a href="https://CRAN.R-project.org/package=igoR" class="external-link"><strong>CRAN</strong></a>:</p>
+<p>Install <strong>igoR</strong> from <a href="https://CRAN.R-project.org/package=igoR" class="external-link"><strong>CRAN</strong></a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"igoR"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the developing version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, you can install <code>igoR</code> using the <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
+<p>Alternatively, you can install <strong>igoR</strong> using the <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install igoR in R:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"igoR"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -292,9 +292,29 @@
 <tbody>
 <tr class="odd">
 <td align="left">EEC</td>
+<td align="right">210</td>
+<td align="left">netherlands</td>
+<td align="left">Netherlands</td>
+<td align="right">1958</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="even">
+<td align="left">EEC</td>
 <td align="right">211</td>
 <td align="left">belgium</td>
 <td align="left">Belgium</td>
+<td align="right">1958</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="odd">
+<td align="left">EEC</td>
+<td align="right">212</td>
+<td align="left">luxembourg</td>
+<td align="left">Luxembourg</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -312,39 +332,19 @@
 </tr>
 <tr class="odd">
 <td align="left">EEC</td>
-<td align="right">325</td>
-<td align="left">italy</td>
-<td align="left">Italy</td>
-<td align="right">1958</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="even">
-<td align="left">EEC</td>
-<td align="right">212</td>
-<td align="left">luxembourg</td>
-<td align="left">Luxembourg</td>
-<td align="right">1958</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="odd">
-<td align="left">EEC</td>
-<td align="right">210</td>
-<td align="left">netherlands</td>
-<td align="left">Netherlands</td>
-<td align="right">1958</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="even">
-<td align="left">EEC</td>
 <td align="right">260</td>
 <td align="left">wgermany</td>
 <td align="left">German Federal Republic</td>
+<td align="right">1958</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="even">
+<td align="left">EEC</td>
+<td align="right">325</td>
+<td align="left">italy</td>
+<td align="left">Italy</td>
 <td align="right">1958</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -380,49 +380,9 @@
 <tbody>
 <tr class="odd">
 <td align="left">EEC</td>
-<td align="right">211</td>
-<td align="left">belgium</td>
-<td align="left">Belgium</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="even">
-<td align="left">EEC</td>
-<td align="right">390</td>
-<td align="left">denmark</td>
-<td align="left">Denmark</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="odd">
-<td align="left">EEC</td>
-<td align="right">220</td>
-<td align="left">france</td>
-<td align="left">France</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="even">
-<td align="left">EEC</td>
-<td align="right">255</td>
-<td align="left">germany</td>
-<td align="left">Germany</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="odd">
-<td align="left">EEC</td>
-<td align="right">350</td>
-<td align="left">greece</td>
-<td align="left">Greece</td>
+<td align="right">200</td>
+<td align="left">uk</td>
+<td align="left">United Kingdom</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -440,26 +400,6 @@
 </tr>
 <tr class="odd">
 <td align="left">EEC</td>
-<td align="right">325</td>
-<td align="left">italy</td>
-<td align="left">Italy</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="even">
-<td align="left">EEC</td>
-<td align="right">212</td>
-<td align="left">luxembourg</td>
-<td align="left">Luxembourg</td>
-<td align="right">1992</td>
-<td align="right">1</td>
-<td align="left">Full Membership</td>
-<td align="left">European Economic Community</td>
-</tr>
-<tr class="odd">
-<td align="left">EEC</td>
 <td align="right">210</td>
 <td align="left">netherlands</td>
 <td align="left">Netherlands</td>
@@ -470,9 +410,29 @@
 </tr>
 <tr class="even">
 <td align="left">EEC</td>
-<td align="right">235</td>
-<td align="left">portugal</td>
-<td align="left">Portugal</td>
+<td align="right">211</td>
+<td align="left">belgium</td>
+<td align="left">Belgium</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="odd">
+<td align="left">EEC</td>
+<td align="right">212</td>
+<td align="left">luxembourg</td>
+<td align="left">Luxembourg</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="even">
+<td align="left">EEC</td>
+<td align="right">220</td>
+<td align="left">france</td>
+<td align="left">France</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -490,9 +450,49 @@
 </tr>
 <tr class="even">
 <td align="left">EEC</td>
-<td align="right">200</td>
-<td align="left">uk</td>
-<td align="left">United Kingdom</td>
+<td align="right">235</td>
+<td align="left">portugal</td>
+<td align="left">Portugal</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="odd">
+<td align="left">EEC</td>
+<td align="right">255</td>
+<td align="left">germany</td>
+<td align="left">Germany</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="even">
+<td align="left">EEC</td>
+<td align="right">325</td>
+<td align="left">italy</td>
+<td align="left">Italy</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="odd">
+<td align="left">EEC</td>
+<td align="right">350</td>
+<td align="left">greece</td>
+<td align="left">Greece</td>
+<td align="right">1992</td>
+<td align="right">1</td>
+<td align="left">Full Membership</td>
+<td align="left">European Economic Community</td>
+</tr>
+<tr class="even">
+<td align="left">EEC</td>
+<td align="right">390</td>
+<td align="left">denmark</td>
+<td align="left">Denmark</td>
 <td align="right">1992</td>
 <td align="right">1</td>
 <td align="left">Full Membership</td>
@@ -508,9 +508,9 @@
 </h2>
 <ul>
 <li>
-<code>countrycode</code> for converting country names and codes across different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)</li>
+<strong>countrycode</strong> for converting country names and codes across different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)</li>
 <li>
-<code>dplyr</code> for data manipulation.</li>
+<strong>dplyr</strong> for data manipulation.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -525,7 +525,7 @@ Hernangómez D (2024). <em>igoR: Intergovernmental Organizations Database</em>. 
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.4442958</span>},</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2024</span>},</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">1.5</span>},</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">2.0</span>},</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>igoR<span class="sc">/</span>},</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to extract information from the Intergovernmental <span class="fu">Organizations</span> (IGO) Database , version <span class="dv">3</span>, provided by the Correlates of War Project <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>correlatesofwar.org<span class="sc">/</span><span class="er">&gt;</span>. See also Pevehouse, J. C. et <span class="fu">al.</span> (<span class="dv">2020</span>). Version <span class="dv">3</span> includes information from <span class="dv">1815</span> to <span class="fl">2014.</span>},</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
